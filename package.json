@@ -1,0 +1,21 @@
+{
+  "name": "companion-midi-button-presser",
+  "version": "1.0.0",
+  "description": "Simple MIDI button presser for Companion",
+  "main": "src/main.js",
+  "scripts": {
+    "start": "electron .",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Richard Huss <richard@huss.org.uk>",
+  "license": "MIT",
+  "packageManager": "yarn@4.4.1",
+  "devDependencies": {
+    "electron": "33.2.1"
+  },
+  "dependencies": {
+    "@julusian/midi": "^3.6.1",
+    "electron-store": "^10.0.0"
+  },
+  "type": "module"
+}

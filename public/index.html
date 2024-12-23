@@ -6,16 +6,31 @@
     <!-- https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP -->
     <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'" />
     <meta http-equiv="X-Content-Security-Policy" content="default-src 'self'; script-src 'self'" />
-    <title>Hello from Electron renderer!</title>
+    <title>Companion Midi Button Presser</title>
+    <link type="text/css" rel="stylesheet" href="./index.css" />
 </head>
 
 <body>
-    <h1>Hello from Electron renderer!</h1>
-    <p>👋</p>
+    <h1>Companion Midi Button Presser</h1>
+
+    <form>
+        <label for="companionHost">Companion host</label>
+        <input type="text" id="companionHost" />
+        <label for="companionPort">Companion port</label>
+        <input type="text" id="companionPort" />
+        <label for="midiPort">MIDI In port</label>
+        <input type="text" id="midiPort" />
+        <label for="virtualMidiPortName">Virtual MIDI port name</label>
+        <input type="text" id="virtualMidiPortName" />
+        <label for="pageOffset">Page offset</label>
+        <input type="text" id="pageOffset" />
+        <button>Save</button>
+    </form>
+
     <p id="info"></p>
-    <p id="companionHost"></p>
     <p id="midiPorts"></p>
 </body>
+
 <script src="./renderer.js"></script>
 
 </html>

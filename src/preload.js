@@ -6,5 +6,5 @@ contextBridge.exposeInMainWorld('versions', {
   electron: () => process.versions.electron,
 
   getMidiPorts: () => ipcRenderer.invoke('getMidiPorts'),
-  getCompanionHost: () => ipcRenderer.invoke('getCompanionHost')
+  getSettings: () => ipcRenderer.invoke('getSettings')
 })

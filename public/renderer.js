@@ -7,9 +7,12 @@ const func = async () => {
   const information = document.getElementById('info')
   information.innerText = `This app is using Chrome (v${versions.chrome()}), Node.js (v${versions.node()}), and Electron (v${versions.electron()})`
 
-  const companionHostResponse = await window.versions.getCompanionHost()
-  const companionHost = document.getElementById('companionHost')
-  companionHost.innerText = companionHostResponse
+  const settings = await window.versions.getSettings()
+  document.querySelector('#companionHost').value = settings.companionHost
+  document.querySelector('#companionPort').value = settings.companionPort
+  document.querySelector('#midiPort').value = settings.midiPort
+  document.querySelector('#virtualMidiPortName').value = settings.virtualMidiPortName
+  document.querySelector('#pageOffset').value = settings.pageOffset
 }
 
 func()

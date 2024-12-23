@@ -8,7 +8,7 @@ export default function addIpcHandlers() {
     return getMidiPorts()
   })
   
-  ipcMain.handle('getCompanionHost', () => {
+  ipcMain.handle('getSettings', () => {
     return getSettings()
   })
 }

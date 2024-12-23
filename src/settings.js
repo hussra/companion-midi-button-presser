@@ -1,25 +1,25 @@
 import Store from 'electron-store'
 
 const schema = {
-  companion_host: {
+  companionHost: {
     type: 'string',
     format: 'ipv4',
     default: '127.0.0.1'
   },
-  companion_port: {
+  companionPort: {
     type: 'number',
     minimum: 1,
     maximum: 65535,
     default: 8000
   },
-  midi_port: {
+  midiPort: {
     type: 'string'
   },
-  virtual_midi_port_name: {
+  virtualMidiPortName: {
     type: 'string',
     default: 'CompanionMIDIButtonPresser'
   },
-  page_offset: {
+  pageOffset: {
     type: 'number',
     minimum: 0,
     maximum: 500,
@@ -29,5 +29,14 @@ const schema = {
 
 export default function getSettings() {
   const store = new Store( {schema} )
-  return store.get('companion_host')
+
+  let settings = {
+    companionHost: store.get('companionHost'),
+    companionPort: store.get('companionPort'),
+    midiPort: store.get('midiPort'),
+    virtualMidiPortName: store.get('virtualMidiPortName'),
+    pageOffset: store.get('pageOffset')
+  }
+
+  return settings
 }

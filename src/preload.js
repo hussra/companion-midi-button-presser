@@ -1,10 +1,7 @@
 const { contextBridge, ipcRenderer } = require('electron')
 
-contextBridge.exposeInMainWorld('versions', {
-  node: () => process.versions.node,
-  chrome: () => process.versions.chrome,
-  electron: () => process.versions.electron,
-
+contextBridge.exposeInMainWorld('electronAPI', {
   getMidiPorts: () => ipcRenderer.invoke('getMidiPorts'),
-  getSettings: () => ipcRenderer.invoke('getSettings')
+  getSettings: () => ipcRenderer.invoke('getSettings'),
+  saveSettings: (settings) => {ipcRenderer.invoke('saveSettings', settings)}
 })

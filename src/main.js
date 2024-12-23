@@ -20,10 +20,4 @@ app.whenReady().then(() => {
     event.preventDefault()
   })
 
-  // app.setAboutPanelOptions({
-  //   'applicationName': 'Companion MIDI Button Presser',
-  //   'applicationVersion': '1.0.0',
-  //   'copyright': '© 2024 Richard Huss',
-  //   'authors': 'Richard Huss'
-  // })
 })

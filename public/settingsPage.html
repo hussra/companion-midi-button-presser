@@ -7,7 +7,7 @@
     <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'" />
     <meta http-equiv="X-Content-Security-Policy" content="default-src 'self'; script-src 'self'" />
     <title>Companion Midi Button Presser</title>
-    <link type="text/css" rel="stylesheet" href="./index.css" />
+    <link type="text/css" rel="stylesheet" href="./settingsPage.css" />
 </head>
 
 <body>
@@ -24,13 +24,12 @@
         <input type="text" id="virtualMidiPortName" />
         <label for="pageOffset">Page offset</label>
         <input type="text" id="pageOffset" />
-        <button>Save</button>
+        <button id="saveButton">Save</button>
     </form>
 
-    <p id="info"></p>
     <p id="midiPorts"></p>
 </body>
 
-<script src="./renderer.js"></script>
+<script src="./settingsPage.js"></script>
 
 </html>

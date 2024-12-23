@@ -27,7 +27,7 @@ const schema = {
   }
 };
 
-export default function getSettings() {
+export function getSettings() {
   const store = new Store( {schema} )
 
   let settings = {
@@ -39,4 +39,9 @@ export default function getSettings() {
   }
 
   return settings
+}
+
+export function saveSettings(settings) {
+  const store = new Store( {schema} )
+  store.set(settings)
 }

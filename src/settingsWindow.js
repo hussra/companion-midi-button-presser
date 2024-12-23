@@ -21,7 +21,7 @@ export default function openSettingsWindow() {
     },
   })
   settingsWindow.menuBarVisible = false
-  settingsWindow.loadFile('public/index.html')
+  settingsWindow.loadFile('public/settingsPage.html')
 
   settingsWindow.on('closed', () => {
     settingsWindow = null

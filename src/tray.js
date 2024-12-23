@@ -17,6 +17,6 @@ export default function createTray() {
     tray.popUpContextMenu()
   })
 
-  tray.setToolTip('This is my application')
+  tray.setToolTip('Companion Midi Button Presser')
   tray.setTitle('Companion Midi Button Presser')
 }

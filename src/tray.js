@@ -1,5 +1,7 @@
 import { app, Tray, Menu, nativeImage } from 'electron'
+
 import openSettingsWindow from './settingsWindow.js'
+import pkg from '../package.json' with { type: 'json' }
 
 let tray
 
@@ -9,7 +11,8 @@ export default function createTray() {
   tray = new Tray(icon)
 
   const contextMenu = Menu.buildFromTemplate([
-    { label: 'Settings', type: 'normal', click: () => { openSettingsWindow() } },
+    { label: 'About...', role: 'about' },
+    { label: 'Settings...', type: 'normal', click: () => { openSettingsWindow() } },
     { role: 'quit' }
   ])
   tray.setContextMenu(contextMenu)
@@ -17,6 +20,6 @@ export default function createTray() {
     tray.popUpContextMenu()
   })
 
-  tray.setToolTip('Companion Midi Button Presser')
-  tray.setTitle('Companion Midi Button Presser')
+  tray.setToolTip(pkg.description)
+  tray.setTitle(pkg.description)
 }

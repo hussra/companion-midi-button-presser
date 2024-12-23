@@ -6,6 +6,10 @@ const func = async () => {
 
   const information = document.getElementById('info')
   information.innerText = `This app is using Chrome (v${versions.chrome()}), Node.js (v${versions.node()}), and Electron (v${versions.electron()})`
+
+  const companionHostResponse = await window.versions.getCompanionHost()
+  const companionHost = document.getElementById('companionHost')
+  companionHost.innerText = companionHostResponse
 }
 
 func()

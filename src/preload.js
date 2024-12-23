@@ -5,5 +5,6 @@ contextBridge.exposeInMainWorld('versions', {
   chrome: () => process.versions.chrome,
   electron: () => process.versions.electron,
 
-  getMidiPorts: () => ipcRenderer.invoke('getMidiPorts')
+  getMidiPorts: () => ipcRenderer.invoke('getMidiPorts'),
+  getCompanionHost: () => ipcRenderer.invoke('getCompanionHost')
 })

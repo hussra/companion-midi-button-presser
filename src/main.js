@@ -5,6 +5,7 @@ import openSettingsWindow from './settingsWindow.js'
 import createTray from './tray.js'
 import addIpcHandlers from './ipcHandlers.js'
 import { loadSettings, isConfigured } from './settings.js'
+import { startListening } from './midi.js'
 
 app.whenReady().then(() => {
   loadSettings()
@@ -12,7 +13,9 @@ app.whenReady().then(() => {
   createTray()
   setAboutPanelOptions()
 
-  if (!isConfigured()) {
+  if (isConfigured()) {
+    startListening()
+  } else {
     openSettingsWindow()
   }
   

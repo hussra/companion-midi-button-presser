@@ -13,7 +13,6 @@ export default function addIpcHandlers() {
   })
 
   ipcMain.handle('saveSettings', async(event, settings) => {
-    console.log('saving ' + JSON.stringify(settings))
     saveSettings(settings)
     return true
   })

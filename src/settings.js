@@ -1,5 +1,7 @@
 import Store from 'electron-store'
 
+let settings = null
+
 const schema = {
   companionHost: {
     type: 'string',
@@ -28,17 +30,23 @@ const schema = {
 };
 
 export function getSettings() {
+  if (settings) {
+    return settings
+  } else {
+    return loadSettings()
+  }
+}
+
+function loadSettings() {
   const store = new Store( {schema} )
 
-  let settings = {
+  return {
     companionHost: store.get('companionHost'),
     companionPort: store.get('companionPort'),
     midiPort: store.get('midiPort'),
     virtualMidiPortName: store.get('virtualMidiPortName'),
     pageOffset: store.get('pageOffset')
   }
-
-  return settings
 }
 
 export function saveSettings(settings) {

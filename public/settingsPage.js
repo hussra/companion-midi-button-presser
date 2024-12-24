@@ -1,28 +1,41 @@
-const func = async () => {
-  const response = await window.electronAPI.getMidiPorts()
+const populateMidiPorts = async () => {
+  const midiPorts = await window.electronAPI.getMidiPorts()
 
-  const midiPorts = document.getElementById('midiPorts')
-  midiPorts.innerText = JSON.stringify(response)
+  const midiPortSelect = document.getElementById('midiPort');
+  for (i in midiPorts) {
+    let option = document.createElement('option')
+    option.innerHTML = midiPorts[i]
+    option.setAttribute('value', midiPorts[i])
+    midiPortSelect.append(option)
+  }
+} 
 
+const populateSettings = async () => {
   const settings = await window.electronAPI.getSettings()
-  document.querySelector('#companionHost').value = settings.companionHost
-  document.querySelector('#companionPort').value = settings.companionPort
-  document.querySelector('#midiPort').value = settings.midiPort
-  document.querySelector('#virtualMidiPortName').value = settings.virtualMidiPortName
-  document.querySelector('#pageOffset').value = settings.pageOffset
-
-  const saveButton = document.querySelector('#saveButton')
-  saveButton.addEventListener('click', async () => {
-    const newSettings = {
-      companionHost: document.querySelector('#companionHost').value,
-      companionPort: parseInt(document.querySelector('#companionPort').value),
-      midiPort: document.querySelector('#midiPort').value,
-      virtualMidiPortName: document.querySelector('#virtualMidiPortName').value,
-      pageOffset: parseInt(document.querySelector('#pageOffset').value)
-    }
-
-    window.electronAPI.saveSettings(newSettings)
-  })
+  document.getElementById('companionHost').value = settings.companionHost
+  document.getElementById('companionPort').value = settings.companionPort
+  document.getElementById('midiPort').value = settings.midiPort
+  document.getElementById('virtualMidiPortName').value = settings.virtualMidiPortName
+  document.getElementById('pageOffset').value = settings.pageOffset
 }
 
-func()
+const save = async (event) => {
+  event.preventDefault()
+
+  const settings = {
+    companionHost: document.getElementById('companionHost').value,
+    companionPort: parseInt(document.getElementById('companionPort').value),
+    midiPort: document.getElementById('midiPort').value,
+    virtualMidiPortName: document.getElementById('virtualMidiPortName').value,
+    pageOffset: parseInt(document.getElementById('pageOffset').value)
+  }
+
+  window.electronAPI.saveSettings(settings)
+}
+
+const load = async () => {
+  populateMidiPorts()
+  populateSettings()
+  document.getElementById('saveButton').addEventListener('click', save)
+}
+load()

@@ -15,19 +15,25 @@
 
     <form>
         <label for="companionHost">Companion host</label>
-        <input type="text" id="companionHost" />
+        <input type="text" id="companionHost" required pattern="^((25[0-5]|(2[0-4]|1\d|[1-9]|)\d)\.?\b){4}$" />
+
         <label for="companionPort">Companion port</label>
-        <input type="text" id="companionPort" />
+        <input type="number" min="1" max="65535" id="companionPort" />
+
         <label for="midiPort">MIDI In port</label>
-        <input type="text" id="midiPort" />
+        <select id="midiPort" required>
+            <option value="">--Select MIDI In port--</option>
+        </select>
+
         <label for="virtualMidiPortName">Virtual MIDI port name</label>
         <input type="text" id="virtualMidiPortName" />
+
         <label for="pageOffset">Page offset</label>
-        <input type="text" id="pageOffset" />
+        <input type="number" min="0" max="500" id="pageOffset" />
+
         <button id="saveButton">Save</button>
     </form>
 
-    <p id="midiPorts"></p>
 </body>
 
 <script src="./settingsPage.js"></script>

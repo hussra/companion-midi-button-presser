@@ -10,11 +10,13 @@ export default function createTray() {
   const icon = nativeImage.createFromPath('assets/Black_question_mark.png')
   tray = new Tray(icon)
 
-  const contextMenu = Menu.buildFromTemplate([
-    { label: 'About...', role: 'about' },
-    { label: 'Settings...', type: 'normal', click: () => { openSettingsWindow() } },
-    { role: 'quit' }
-  ])
+  const contextMenu = Menu.buildFromTemplate(
+    [
+      { label: 'Settings', type: 'normal', click: () => { openSettingsWindow() } },
+      { label: 'About', role: 'about' },
+      { role: 'quit' }
+    ]
+  )
   tray.setContextMenu(contextMenu)
   tray.on('click', () => {
     tray.popUpContextMenu()

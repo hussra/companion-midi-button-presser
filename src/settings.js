@@ -57,6 +57,5 @@ export function saveSettings(newSettings) {
 
 export function isConfigured() {
   const settings = getSettings()
-
-  return (settings.companionHost && settings.companionPort && settings.midiPort && settings.pageOffset)
+  return (settings.companionHost != '') && (settings.midiPort != '')
 }

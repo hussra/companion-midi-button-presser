@@ -1,37 +1,51 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
     <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP -->
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'" />
-    <meta http-equiv="X-Content-Security-Policy" content="default-src 'self'; script-src 'self'" />
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; img-src 'self' data:;" />
+    <meta http-equiv="X-Content-Security-Policy"
+        content="default-src 'self'; script-src 'self'; img-src 'self' data:;" />
     <title>Companion Midi Button Presser</title>
     <link type="text/css" rel="stylesheet" href="./settingsPage.css" />
 </head>
 
-<body>
+<body class="m-3">
     <h1>Companion Midi Button Presser</h1>
 
     <form>
-        <label for="companionHost">Companion host</label>
-        <input type="text" id="companionHost" required pattern="^((25[0-5]|(2[0-4]|1\d|[1-9]|)\d)\.?\b){4}$" />
-
-        <label for="companionPort">Companion port</label>
-        <input type="number" min="1" max="65535" id="companionPort" />
-
-        <label for="midiPort">MIDI In port</label>
-        <select id="midiPort" required>
-            <option value="">--Select MIDI In port--</option>
-        </select>
-
-        <label for="virtualMidiPortName">Virtual MIDI port name</label>
-        <input type="text" id="virtualMidiPortName" />
-
-        <label for="pageOffset">Page offset</label>
-        <input type="number" min="0" max="500" id="pageOffset" />
-
-        <button id="saveButton">Save</button>
+        <div class="mb-3">
+            <label for="companionHost" class="form-label">Companion host</label>
+            <input type="text" id="companionHost" class="form-control" required
+                pattern="^((25[0-5]|(2[0-4]|1\d|[1-9]|)\d)\.?\b){4}$" />
+            <div class="form-text">The IP address of the computer running Companion.
+                Use 127.0.0.1 if Companion is running on the same computer as this program.</div>
+        </div>
+        <div class="mb-3">
+            <label for="companionPort" class="form-label">Companion port</label>
+            <input class="form-control" type="number" min="1" max="65535" id="companionPort" />
+            <div class="form-text">The port number where Companion is running - default is 8000.</div>
+        </div>
+        <div class="mb-3">
+            <label for="midiPort" class="form-label">MIDI In port</label>
+            <select class="form-select" id="midiPort">
+                <option value="">--Select MIDI In port--</option>
+            </select>
+            <div class="form-text">The MIDI In port this program should listen to for note-on signals.</div>
+        </div>
+        <div class="mb-3">
+            <label for="virtualMidiPortName" class="form-label">Virtual MIDI port name</label>
+            <input class="form-control" type="text" id="virtualMidiPortName" />
+        </div>
+        <div class="mb-3">
+            <label for="pageOffset" class="form-label">Page offset</label>
+            <input class="form-control" type="number" min="0" max="500" id="pageOffset" />
+        </div>
+        <div>
+            <button id="saveButton" class="btn btn-primary">Save</button>
+        </div>
     </form>
 
 </body>

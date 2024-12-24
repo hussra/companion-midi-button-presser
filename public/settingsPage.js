@@ -1,23 +1,25 @@
-const populateMidiPorts = async () => {
-  const midiPorts = await window.electronAPI.getMidiPorts()
+import '../node_modules/bootstrap/dist/js/bootstrap.js'
+
+async function populateMidiPorts() {
+  const midiPorts = await window.electronAPI.getMidiPorts();
 
   const midiPortSelect = document.getElementById('midiPort');
-  for (i in midiPorts) {
-    let option = document.createElement('option')
-    option.innerHTML = midiPorts[i]
-    option.setAttribute('value', midiPorts[i])
-    midiPortSelect.append(option)
+  for (let i in midiPorts) {
+    let option = document.createElement('option');
+    option.innerHTML = midiPorts[i];
+    option.setAttribute('value', midiPorts[i]);
+    midiPortSelect.append(option);
   }
 } 
 
-const populateSettings = async () => {
-  const settings = await window.electronAPI.getSettings()
-  document.getElementById('companionHost').value = settings.companionHost
-  document.getElementById('companionPort').value = settings.companionPort
+async function populateSettings() {
+  const settings = await window.electronAPI.getSettings();
+  document.getElementById('companionHost').value = settings.companionHost;
+  document.getElementById('companionPort').value = settings.companionPort;
   //alert('Setting midi port to ' + settings.midiPort)
-  document.getElementById('midiPort').value = settings.midiPort
-  document.getElementById('virtualMidiPortName').value = settings.virtualMidiPortName
-  document.getElementById('pageOffset').value = settings.pageOffset
+  document.getElementById('midiPort').value = settings.midiPort;
+  document.getElementById('virtualMidiPortName').value = settings.virtualMidiPortName;
+  document.getElementById('pageOffset').value = settings.pageOffset;
 }
 
 const save = async (event) => {

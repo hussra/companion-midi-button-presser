@@ -12,44 +12,69 @@
     <link type="text/css" rel="stylesheet" href="./settingsPage.css" />
 </head>
 
-<body class="m-3">
-    <h1>Companion Midi Button Presser</h1>
+<body>
+    <h1 class="m-3">Companion Midi Button Presser</h1>
 
-    <form>
-        <div class="mb-3">
-            <label for="companionHost" class="form-label">Companion host</label>
-            <input type="text" id="companionHost" class="form-control" required
-                pattern="^((25[0-5]|(2[0-4]|1\d|[1-9]|)\d)\.?\b){4}$" />
-            <div class="form-text">The IP address of the computer running Companion.
-                Use 127.0.0.1 if Companion is running on the same computer as this program.</div>
+    <ul class=" nav nav-tabs justify-content-center" id="myTab" role="tablist">
+        <li class="nav-item" role="presentation">
+            <button class="nav-link active" id="settings-tab" data-bs-toggle="tab" data-bs-target="#settings-tab-pane"
+                type="button" role="tab" aria-controls="settings-tab-pane" aria-selected="true">Settings</button>
+        </li>
+        <li class="nav-item" role="presentation">
+            <button class="nav-link" id="help-tab" data-bs-toggle="tab" data-bs-target="#help-tab-pane" type="button"
+                role="tab" aria-controls="help-tab-pane" aria-selected="false">Help</button>
+        </li>
+        <li class="nav-item" role="presentation">
+            <button class="nav-link" id="about-tab" data-bs-toggle="tab" data-bs-target="#about-tab-pane" type="button"
+                role="tab" aria-controls="about-tab-pane" aria-selected="false">About</button>
+        </li>
+    </ul>
+    <div class="tab-content m-3" id="myTabContent">
+        <div class="tab-pane fade show active" id="settings-tab-pane" role="tabpanel" aria-labelledby="settings-tab"
+            tabindex="0">
+            <form>
+                <div class="mb-3">
+                    <label for="companionHost" class="form-label">Companion host</label>
+                    <input type="text" id="companionHost" class="form-control" required
+                        pattern="^((25[0-5]|(2[0-4]|1\d|[1-9]|)\d)\.?\b){4}$" />
+                    <div class="form-text">The IP address of the computer running Companion.
+                        Use 127.0.0.1 if Companion is running on the same computer as this program.</div>
+                </div>
+                <div class="mb-3">
+                    <label for="companionPort" class="form-label">Companion port</label>
+                    <input class="form-control" type="number" min="1" max="65535" id="companionPort" />
+                    <div class="form-text">The port number where Companion is running - default is 8000.</div>
+                </div>
+                <div class="mb-3">
+                    <label for="midiPort" class="form-label">MIDI In port</label>
+                    <select class="form-select" id="midiPort">
+                        <option value="">--Select MIDI In port--</option>
+                    </select>
+                    <div class="form-text">The MIDI In port this program should listen to for note-on signals.</div>
+                </div>
+                <div class="mb-3">
+                    <label for="virtualMidiPortName" class="form-label">Virtual MIDI port name</label>
+                    <input class="form-control" type="text" id="virtualMidiPortName" />
+                </div>
+                <div class="mb-3">
+                    <label for="pageOffset" class="form-label">Page offset</label>
+                    <input class="form-control" type="number" min="0" max="500" id="pageOffset" />
+                </div>
+                <div>
+                    <button id="saveButton" class="btn btn-primary">Save</button>
+                </div>
+            </form>
         </div>
-        <div class="mb-3">
-            <label for="companionPort" class="form-label">Companion port</label>
-            <input class="form-control" type="number" min="1" max="65535" id="companionPort" />
-            <div class="form-text">The port number where Companion is running - default is 8000.</div>
+        <div class="tab-pane fade" id="help-tab-pane" role="tabpanel" aria-labelledby="help-tab" tabindex="0">
+            Help
         </div>
-        <div class="mb-3">
-            <label for="midiPort" class="form-label">MIDI In port</label>
-            <select class="form-select" id="midiPort">
-                <option value="">--Select MIDI In port--</option>
-            </select>
-            <div class="form-text">The MIDI In port this program should listen to for note-on signals.</div>
+        <div class="tab-pane fade" id="about-tab-pane" role="tabpanel" aria-labelledby="about-tab" tabindex="0">
+            About
         </div>
-        <div class="mb-3">
-            <label for="virtualMidiPortName" class="form-label">Virtual MIDI port name</label>
-            <input class="form-control" type="text" id="virtualMidiPortName" />
-        </div>
-        <div class="mb-3">
-            <label for="pageOffset" class="form-label">Page offset</label>
-            <input class="form-control" type="number" min="0" max="500" id="pageOffset" />
-        </div>
-        <div>
-            <button id="saveButton" class="btn btn-primary">Save</button>
-        </div>
-    </form>
+    </div>
 
 </body>
 
-<script src="./settingsPage.js"></script>
+<script type="module" src="./settingsPage.js"></script>
 
 </html>

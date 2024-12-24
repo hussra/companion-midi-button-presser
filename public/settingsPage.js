@@ -32,6 +32,7 @@ const save = async (event) => {
   }
 
   window.electronAPI.saveSettings(settings)
+  window.close()
 }
 
 const load = async () => {

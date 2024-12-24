@@ -15,7 +15,8 @@ const schema = {
     default: 8000
   },
   midiPort: {
-    type: 'string'
+    type: 'string',
+    default: ''
   },
   virtualMidiPortName: {
     type: 'string',
@@ -30,17 +31,16 @@ const schema = {
 };
 
 export function getSettings() {
-  if (settings) {
-    return settings
-  } else {
-    return loadSettings()
+  if (!settings) {
+    loadSettings()
   }
+  return settings
 }
 
-function loadSettings() {
+export function loadSettings() {
   const store = new Store( {schema} )
 
-  return {
+  settings = {
     companionHost: store.get('companionHost'),
     companionPort: store.get('companionPort'),
     midiPort: store.get('midiPort'),
@@ -49,7 +49,14 @@ function loadSettings() {
   }
 }
 
-export function saveSettings(settings) {
+export function saveSettings(newSettings) {
   const store = new Store( {schema} )
-  store.set(settings)
+  store.set(newSettings)
+  settings = newSettings
+}
+
+export function isConfigured() {
+  const settings = getSettings()
+
+  return (settings.companionHost && settings.companionPort && settings.midiPort && settings.pageOffset)
 }

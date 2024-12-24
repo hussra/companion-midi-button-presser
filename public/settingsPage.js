@@ -14,6 +14,7 @@ const populateSettings = async () => {
   const settings = await window.electronAPI.getSettings()
   document.getElementById('companionHost').value = settings.companionHost
   document.getElementById('companionPort').value = settings.companionPort
+  //alert('Setting midi port to ' + settings.midiPort)
   document.getElementById('midiPort').value = settings.midiPort
   document.getElementById('virtualMidiPortName').value = settings.virtualMidiPortName
   document.getElementById('pageOffset').value = settings.pageOffset

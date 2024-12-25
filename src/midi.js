@@ -1,7 +1,7 @@
 import { Input } from '@julusian/midi'
 import { getSettings } from './settings.js';
 
-const midi_input = new Input()
+let midi_input = new Input()
 
 export function getMidiPorts() {
   const port_count = midi_input.getPortCount();
@@ -32,7 +32,7 @@ export function startListening() {
     const midiMessageVelocity = message[2]
 
     console.log(
-      `MIDI Message: Midi Channel: ${midiMessageChannel}, Is Note On?: ${midiMessageIsNoteon}, Note: ${midiMessageNote}, Velocity: ${midiMessageVelocity}, Delta Time: ${deltaTime}`,
+      `MIDI Message: Midi Channel: ${midiMessageChannel}, Is Note On?: ${midiMessageIsNoteon}, Note: ${midiMessageNote}, Velocity: ${midiMessageVelocity}`,
     )
     if (midiMessageIsNoteon) {
       pressCompanionButton(midiMessageChannel, midiMessageNote, midiMessageVelocity)

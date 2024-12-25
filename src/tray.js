@@ -9,7 +9,7 @@ let tray
 export default function createTray() {
 
   const assetsPath = app.isPackaged ? path.join(process.resourcesPath, "app", "assets") : "assets";
-  const icon = nativeImage.createFromPath(path.join(assetsPath, 'Black_question_mark.png'))
+  const icon = nativeImage.createFromPath(path.join(assetsPath, 'CompanionMidiButtonPresser.png'))
   
   tray = new Tray(icon)
 

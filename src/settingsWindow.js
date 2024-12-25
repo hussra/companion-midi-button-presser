@@ -7,7 +7,7 @@ const __dirname = path.dirname(__filename); // get the name of the directory
 
 let settingsWindow = null
 
-export default function openSettingsWindow() {
+export function openSettingsWindow() {
   if (settingsWindow) {
     settingsWindow.focus()
     return
@@ -26,4 +26,8 @@ export default function openSettingsWindow() {
   settingsWindow.on('closed', () => {
     settingsWindow = null
   })
+}
+
+export function openHelpWindow() {
+
 }

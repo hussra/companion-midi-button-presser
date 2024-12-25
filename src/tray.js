@@ -1,7 +1,7 @@
 import { app, Tray, Menu, nativeImage } from 'electron'
 import path from 'path'
 
-import openSettingsWindow from './settingsWindow.js'
+import { openSettingsWindow, openHelpWindow } from './settingsWindow.js'
 import pkg from '../package.json' with { type: 'json' }
 
 let tray
@@ -16,6 +16,7 @@ export default function createTray() {
   const contextMenu = Menu.buildFromTemplate(
     [
       { label: 'Settings', type: 'normal', click: () => { openSettingsWindow() } },
+      { label: 'Help', type: 'normal', click: () => { openHelpWindow() }},
       { label: 'About', role: 'about' },
       { role: 'quit' }
     ]

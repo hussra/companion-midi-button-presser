@@ -4,20 +4,55 @@
   "description": "Companion MIDI Button Presser",
   "main": "src/main.js",
   "scripts": {
-    "start": "electron .",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "electron-forge start",
+    "package": "electron-forge package",
+    "make": "electron-forge make",
+    "publish": "electron-forge publish"
   },
   "author": "Richard Huss <richard@huss.org.uk>",
   "license": "MIT",
   "packageManager": "yarn@4.4.1",
   "devDependencies": {
+    "@electron-forge/cli": "^7.6.0",
+    "@electron-forge/maker-deb": "^7.6.0",
+    "@electron-forge/maker-squirrel": "^7.6.0",
+    "@electron-forge/maker-zip": "^7.6.0",
     "electron": "33.2.1"
   },
   "dependencies": {
+    "@electron-forge/maker-rpm": "^7.6.0",
     "@julusian/midi": "^3.6.1",
     "@popperjs/core": "^2.11.8",
     "bootstrap": "^5.3.3",
+    "electron-squirrel-startup": "^1.0.1",
     "electron-store": "^10.0.0"
+  },
+  "config": {
+    "forge": {
+      "packagerConfig": {},
+      "makers": [
+        {
+          "name": "@electron-forge/maker-squirrel",
+          "config": {
+            "name": "electron_quick_start"
+          }
+        },
+        {
+          "name": "@electron-forge/maker-zip",
+          "platforms": [
+            "darwin"
+          ]
+        },
+        {
+          "name": "@electron-forge/maker-deb",
+          "config": {}
+        },
+        {
+          "name": "@electron-forge/maker-rpm",
+          "config": {}
+        }
+      ]
+    }
   },
   "type": "module"
 }

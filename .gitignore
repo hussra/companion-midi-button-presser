@@ -6,3 +6,4 @@ package-lock.json
 # Compiled output
 dist/
 build/
+out/

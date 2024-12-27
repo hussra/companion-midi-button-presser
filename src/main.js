@@ -1,7 +1,7 @@
 import { app, ipcMain } from 'electron'
 
 import setAboutPanelOptions from './about.js'
-import { openSettingsWindow } from './settingsWindow.js'
+import { openWindow } from './window.js'
 import createTray from './tray.js'
 import addIpcHandlers from './ipcHandlers.js'
 import { isConfigured, onSettingsSaved } from './settings.js'
@@ -18,7 +18,7 @@ if (!app.requestSingleInstanceLock()) {
   app.quit()
 } else {
   app.on('second-instance', (event, commandLine, workingDirectory, additionalData) => {
-    openSettingsWindow()
+    openWindow('settings.html')
   })
 
   app.whenReady().then(() => {
@@ -29,7 +29,7 @@ if (!app.requestSingleInstanceLock()) {
     if (isConfigured()) {
       startListening()
     } else {
-      openSettingsWindow()
+      openWindow('settings.html')
     }
     
     onSettingsSaved((newValue, oldValue) => {
@@ -45,7 +45,7 @@ if (!app.requestSingleInstanceLock()) {
     })
 
     app.on('activate', () => {
-      openSettingsWindow()
+      openWindow('settings.html')
     })
 
     app.on('window-all-closed', (event) => {

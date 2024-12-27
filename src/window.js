@@ -6,38 +6,36 @@ import getIcon from './icon.js'
 const __filename = fileURLToPath(import.meta.url); // get the resolved path to the file
 const __dirname = path.dirname(__filename); // get the name of the directory
 
-let settingsWindow = null
+let mainWindow = null
 
-export function openSettingsWindow() {
-  if (settingsWindow) {
-    settingsWindow.focus()
+export function openWindow(page) {
+  // If window already exists, make sure it is focussed, and load the required page
+  if (mainWindow) {
+    mainWindow.loadFile(`public/${page}`)
+    mainWindow.focus()
     return
   }
 
-  settingsWindow = new BrowserWindow({
+  mainWindow = new BrowserWindow({
     width: 800,
     height: 800,
     webPreferences: {
       preload: path.join(__dirname, 'preload.js')
     },
   })
-  settingsWindow.menuBarVisible = false
+  mainWindow.menuBarVisible = false
 
-  settingsWindow.setIcon(getIcon())
+  mainWindow.setIcon(getIcon())
 
-  settingsWindow.loadFile('public/settingsPage.html')
+  mainWindow.loadFile(`public/${page}`)
 
-  settingsWindow.on('closed', () => {
-    settingsWindow = null
+  mainWindow.on('closed', () => {
+    mainWindow = null
   })
 
-  settingsWindow.webContents.setWindowOpenHandler(({ url }) => {
+  mainWindow.webContents.setWindowOpenHandler(({ url }) => {
     // Open urls with target="_blank" in a browser
     shell.openExternal(url);
     return { action: 'deny' };
   });
-}
-
-export function openHelpWindow() {
-
 }

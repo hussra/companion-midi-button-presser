@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP -->
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; img-src 'self' data:;" />
+    <meta http-equiv="X-Content-Security-Policy"
+        content="default-src 'self'; script-src 'self'; img-src 'self' data:;" />
+    <title>Companion Midi Button Presser</title>
+    <link type="text/css" rel="stylesheet" href="./style.css" />
+</head>
+
+<body>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-9 p-3">
+                <h1>Companion Midi Button Presser</h1>
+            </div>
+            <div class="col-3 text-end p-3">
+                <img src="../assets/CompanionMidiButtonPresser.png" width="50" />
+            </div>
+        </div>
+    </div>
+
+    <ul class="nav nav-tabs justify-content-center">
+        <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="#">Settings</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="help.html">Help</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="about.html">About</a>
+        </li>
+    </ul>
+    <div class="tab-content m-3" id="myTabContent">
+        <form>
+            <div class="mb-3">
+                <label for="companionHost" class="form-label">Companion host</label>
+                <input type="text" id="companionHost" class="form-control" required
+                    pattern="^((25[0-5]|(2[0-4]|1\d|[1-9]|)\d)\.?\b){4}$" />
+                <div class="form-text">The hostname or IP address of the computer running Companion.
+                    Use 127.0.0.1 if Companion is running on the same computer as this program.</div>
+            </div>
+            <div class="mb-3">
+                <label for="companionPort" class="form-label">Companion port</label>
+                <input class="form-control" type="number" min="1" max="65535" id="companionPort" />
+                <div class="form-text">The port number where Companion is running - default is 8000.</div>
+            </div>
+            <div class="mb-3">
+                <label for="midiPort" class="form-label">MIDI In port</label>
+                <select class="form-select" id="midiPort">
+                    <option value="">--Select MIDI In port--</option>
+                </select>
+                <div class="form-text">The MIDI In port this program should listen to for note-on signals.
+                    If none are listed, you probably want to install
+                    <a href="https://www.tobias-erichsen.de/software/loopmidi.html" target="_blank">loopMIDI</a>
+                    and create a loopback MIDI port, or
+                    <a href="https://www.tobias-erichsen.de/software/rtpmidi.html" target="_blank">rtpMIDI</a>
+                    to create a networked MIDI port
+                </div>
+            </div>
+            <div class="mb-3">
+                <label for="pageOffset" class="form-label">Page offset</label>
+                <input class="form-control" type="number" min="0" max="500" id="pageOffset" />
+                <div class="form-text">If you need to access a different range of pages, rather than the default
+                    pages 1-16, you can set an offset here.</div>
+            </div>
+            <div class="mb-3">
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" value="true" id="autoRun" />
+                    <label class="form-check-label" for="autoRun">Run automatically when I log in</label>
+                </div>
+            </div>
+            <div>
+                <button id="saveButton" class="btn btn-primary">Save</button>
+            </div>
+        </form>
+    </div>
+
+</body>
+
+<script type="module" src="./settings.js"></script>
+
+</html>

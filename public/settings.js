@@ -1,4 +1,4 @@
-import '../node_modules/bootstrap/dist/js/bootstrap.js'
+//import '../node_modules/bootstrap/dist/js/bootstrap.js'
 
 async function populateMidiPorts() {
   const midiPorts = await window.electronAPI.getMidiPorts();

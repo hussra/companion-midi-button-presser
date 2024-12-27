@@ -1,4 +1,4 @@
-import { BrowserWindow, shell } from 'electron'
+import { BrowserWindow, shell, app, nativeImage } from 'electron'
 import path from 'path'
 import { fileURLToPath } from 'url'
 
@@ -21,6 +21,11 @@ export function openSettingsWindow() {
     },
   })
   settingsWindow.menuBarVisible = false
+
+  const assetsPath = app.isPackaged ? path.join(process.resourcesPath, "app", "assets") : "assets";
+  const icon = nativeImage.createFromPath(path.join(assetsPath, 'CompanionMidiButtonPresser.png'))
+  settingsWindow.setIcon(icon)
+
   settingsWindow.loadFile('public/settingsPage.html')
 
   settingsWindow.on('closed', () => {
@@ -31,7 +36,7 @@ export function openSettingsWindow() {
     // Open urls with target="_blank" in a browser
     shell.openExternal(url);
     return { action: 'deny' };
-});
+  });
 }
 
 export function openHelpWindow() {

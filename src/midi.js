@@ -1,5 +1,5 @@
 import { Input } from '@julusian/midi'
-import { getSettings } from './settings.js';
+import { getSettings } from './settings.js'
 
 let midi_input = new Input()
 

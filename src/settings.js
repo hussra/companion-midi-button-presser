@@ -18,10 +18,6 @@ const schema = {
     type: 'string',
     default: ''
   },
-  virtualMidiPortName: {
-    type: 'string',
-    default: 'CompanionMIDIButtonPresser'
-  },
   pageOffset: {
     type: 'number',
     minimum: 0,
@@ -44,7 +40,6 @@ export function loadSettings() {
     companionHost: store.get('companionHost'),
     companionPort: store.get('companionPort'),
     midiPort: store.get('midiPort'),
-    virtualMidiPortName: store.get('virtualMidiPortName'),
     pageOffset: store.get('pageOffset')
   }
 }

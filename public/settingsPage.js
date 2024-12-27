@@ -16,9 +16,7 @@ async function populateSettings() {
   const settings = await window.electronAPI.getSettings();
   document.getElementById('companionHost').value = settings.companionHost;
   document.getElementById('companionPort').value = settings.companionPort;
-  //alert('Setting midi port to ' + settings.midiPort)
   document.getElementById('midiPort').value = settings.midiPort;
-  document.getElementById('virtualMidiPortName').value = settings.virtualMidiPortName;
   document.getElementById('pageOffset').value = settings.pageOffset;
 }
 
@@ -29,7 +27,6 @@ const save = async (event) => {
     companionHost: document.getElementById('companionHost').value,
     companionPort: parseInt(document.getElementById('companionPort').value),
     midiPort: document.getElementById('midiPort').value,
-    virtualMidiPortName: document.getElementById('virtualMidiPortName').value,
     pageOffset: parseInt(document.getElementById('pageOffset').value)
   }
 

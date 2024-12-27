@@ -1,4 +1,4 @@
-import { BrowserWindow } from 'electron'
+import { BrowserWindow, shell } from 'electron'
 import path from 'path'
 import { fileURLToPath } from 'url'
 
@@ -26,6 +26,12 @@ export function openSettingsWindow() {
   settingsWindow.on('closed', () => {
     settingsWindow = null
   })
+
+  settingsWindow.webContents.setWindowOpenHandler(({ url }) => {
+    // Open urls with target="_blank" in a browser
+    shell.openExternal(url);
+    return { action: 'deny' };
+});
 }
 
 export function openHelpWindow() {

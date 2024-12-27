@@ -1,6 +1,7 @@
 import { BrowserWindow, shell, app, nativeImage } from 'electron'
 import path from 'path'
 import { fileURLToPath } from 'url'
+import getIcon from './icon.js'
 
 const __filename = fileURLToPath(import.meta.url); // get the resolved path to the file
 const __dirname = path.dirname(__filename); // get the name of the directory
@@ -22,9 +23,7 @@ export function openSettingsWindow() {
   })
   settingsWindow.menuBarVisible = false
 
-  const assetsPath = app.isPackaged ? path.join(process.resourcesPath, "app", "assets") : "assets";
-  const icon = nativeImage.createFromPath(path.join(assetsPath, 'CompanionMidiButtonPresser.png'))
-  settingsWindow.setIcon(icon)
+  settingsWindow.setIcon(getIcon())
 
   settingsWindow.loadFile('public/settingsPage.html')
 

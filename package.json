@@ -36,7 +36,10 @@
         {
           "name": "@electron-forge/maker-squirrel",
           "config": {
-            "name": "electron_quick_start"
+            "name": "companion-midi-button-presser",
+            "productName": "Companion MIDI Button Presser",
+            "iconUrl": "https://raw.githubusercontent.com/hussra/companion-midi-button-presser/refs/heads/main/assets/CompanionMidiButtonPresser.ico",
+            "setupIcon": "./assets/CompanionMidiButtonPresser.ico"
           }
         },
         {

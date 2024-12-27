@@ -15,12 +15,12 @@ export function getMidiPorts() {
 export function startListening() {
   const settings = getSettings()
   try {
-    console.log('Opening MIDI port ' + settings.midiPort)
+    console.log(`Opening MIDI port ${settings.midiPort}`)
     midi_input.openPortByName(settings.midiPort)
   } catch (error) {
     let message = 'Unknown Error'
 		if (error instanceof Error) message = error.message
-    console.log('Error connecting MIDI post: ')
+    console.log(`Error connecting MIDI port: ${settings.midiPort}: ${message}`)
   }
 
   midi_input.removeAllListeners()
@@ -31,8 +31,7 @@ export function startListening() {
     const midiMessageNote = message[1]
     const midiMessageVelocity = message[2]
 
-    console.log(
-      `MIDI Message: Midi Channel: ${midiMessageChannel}, Is Note On?: ${midiMessageIsNoteon}, Note: ${midiMessageNote}, Velocity: ${midiMessageVelocity}`,
+    console.log(`MIDI Message: Midi Channel: ${midiMessageChannel}, Is Note On?: ${midiMessageIsNoteon}, Note: ${midiMessageNote}, Velocity: ${midiMessageVelocity}`,
     )
     if (midiMessageIsNoteon) {
       pressCompanionButton(midiMessageChannel, midiMessageNote, midiMessageVelocity)
@@ -43,7 +42,7 @@ export function startListening() {
 
 export function stopListening() {
   if (midi_input.isPortOpen()) {
-		console.log('debug', 'Closing Midi port')
+		console.log('Closing Midi port')
     midi_input.closePort()
     midi_input.destroy()
     midi_input = new Input()
@@ -57,7 +56,7 @@ function pressCompanionButton(page, row, column) {
   // row = note
   // column = velocity
   const buttonPressURL = `http://${settings.companionHost}:${settings.companionPort}/api/location/${page + 1 + settings.pageOffset}/${row}/${column}/press`
-  console.log('Sending button press HTTP request to: ' + buttonPressURL)
+  console.log(`Sending button press HTTP request to ${buttonPressURL}`)
 
   fetch(buttonPressURL, {
     signal: AbortSignal.timeout(2000),
@@ -67,9 +66,9 @@ function pressCompanionButton(page, row, column) {
     },
   })
   .then((response) => {
-    console.log('Button press response: ' + response.status + ': ' + response.statusText)
+    console.log(`Button press response: ${response.status}: ${response.statusText}`)
   })
   .catch((error) => {
-    console.log('Error fetching ' + buttonPressURL + '. ' + error)
+    console.log(`Error fetching ${buttonPressURL}: ${error}`)
   })
 }

@@ -1,7 +1,7 @@
 import { ipcMain } from 'electron'
 
 import { getSettings, saveSettings } from './settings.js'
-import { getMidiPorts, startListening, stopListening } from './midi.js'
+import { getMidiPorts } from './midi.js'
 
 export default function addIpcHandlers() {
   ipcMain.handle('getMidiPorts', () => {
@@ -14,8 +14,6 @@ export default function addIpcHandlers() {
 
   ipcMain.handle('saveSettings', async(event, settings) => {
     saveSettings(settings)
-    stopListening()
-    startListening()
     return true
   })
 }

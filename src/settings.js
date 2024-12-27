@@ -1,7 +1,5 @@
 import Store from 'electron-store'
 
-let settings = null
-
 const schema = {
   companionHost: {
     type: 'string',
@@ -23,33 +21,34 @@ const schema = {
     minimum: 0,
     maximum: 500,
     default: 0
+  },
+  autoRun: {
+    type: 'boolean',
+    default: false
   }
 };
 
-export function getSettings() {
-  if (!settings) {
-    loadSettings()
-  }
-  return settings
+const store = new Store( {schema} )
+
+export function onSettingsSaved(func) {
+  store.onDidAnyChange(func)
 }
 
-export function loadSettings() {
-  const store = new Store( {schema} )
-
-  settings = {
+export function getSettings() {
+  return {
     companionHost: store.get('companionHost'),
     companionPort: store.get('companionPort'),
     midiPort: store.get('midiPort'),
-    pageOffset: store.get('pageOffset')
+    pageOffset: store.get('pageOffset'),
+    autoRun: store.get('autoRun')
   }
 }
 
 export function saveSettings(newSettings) {
-  const store = new Store( {schema} )
   store.set(newSettings)
-  settings = newSettings
 }
 
+// Are we sufficiently configured to start listening for MIDI notes?
 export function isConfigured() {
   const settings = getSettings()
   return (settings.companionHost != '') && (settings.midiPort != '')

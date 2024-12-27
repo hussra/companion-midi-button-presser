@@ -4,8 +4,8 @@ import setAboutPanelOptions from './about.js'
 import { openSettingsWindow } from './settingsWindow.js'
 import createTray from './tray.js'
 import addIpcHandlers from './ipcHandlers.js'
-import { loadSettings, isConfigured } from './settings.js'
-import { startListening } from './midi.js'
+import { isConfigured, onSettingsSaved } from './settings.js'
+import { startListening, stopListening } from './midi.js'
 
 import started from 'electron-squirrel-startup'
 
@@ -15,7 +15,6 @@ if (started) {
 }
 
 app.whenReady().then(() => {
-  loadSettings()
   addIpcHandlers()
   createTray()
   setAboutPanelOptions()
@@ -26,6 +25,18 @@ app.whenReady().then(() => {
     openSettingsWindow()
   }
   
+  onSettingsSaved((newValue, oldValue) => {
+    stopListening()
+
+    if (isConfigured()) {
+      startListening()
+    }
+
+    app.setLoginItemSettings({
+      openAtLogin: newValue.autoRun
+    })
+  })
+
   app.on('activate', () => {
     openSettingsWindow()
   })

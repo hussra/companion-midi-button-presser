@@ -14,35 +14,43 @@ if (started) {
   app.quit()
 }
 
-app.whenReady().then(() => {
-  addIpcHandlers()
-  createTray()
-  setAboutPanelOptions()
-
-  if (isConfigured()) {
-    startListening()
-  } else {
+if (!app.requestSingleInstanceLock()) {
+  app.quit()
+} else {
+  app.on('second-instance', (event, commandLine, workingDirectory, additionalData) => {
     openSettingsWindow()
-  }
-  
-  onSettingsSaved((newValue, oldValue) => {
-    stopListening()
+  })
+
+  app.whenReady().then(() => {
+    addIpcHandlers()
+    createTray()
+    setAboutPanelOptions()
 
     if (isConfigured()) {
       startListening()
+    } else {
+      openSettingsWindow()
     }
+    
+    onSettingsSaved((newValue, oldValue) => {
+      stopListening()
 
-    app.setLoginItemSettings({
-      openAtLogin: newValue.autoRun
+      if (isConfigured()) {
+        startListening()
+      }
+
+      app.setLoginItemSettings({
+        openAtLogin: newValue.autoRun
+      })
     })
-  })
 
-  app.on('activate', () => {
-    openSettingsWindow()
-  })
+    app.on('activate', () => {
+      openSettingsWindow()
+    })
 
-  app.on('window-all-closed', (event) => {
-    event.preventDefault()
-  })
+    app.on('window-all-closed', (event) => {
+      event.preventDefault()
+    })
 
-})
+  })
+}

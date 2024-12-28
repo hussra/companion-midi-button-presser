@@ -54,12 +54,12 @@
                 <select class="form-select" id="midiPort">
                     <option value="">--Select MIDI In port--</option>
                 </select>
-                <div class="form-text">The MIDI In port this program should listen to for note-on signals.
-                    If none are listed, you probably want to install
+                <div class="form-text">The MIDI In port this program should listen to for note-on signals.</div>
+                <div class="alert alert-warning mt-3 d-none" id="noMidiPorts" role="alert">
+                    No MIDI In ports were found. You probably want to install
                     <a href="https://www.tobias-erichsen.de/software/loopmidi.html" target="_blank">loopMIDI</a>
-                    and create a loopback MIDI port, or
-                    <a href="https://www.tobias-erichsen.de/software/rtpmidi.html" target="_blank">rtpMIDI</a>
-                    to create a networked MIDI port
+                    and create a loopback MIDI port.
+                    <a href="help.html">Read more...</a>
                 </div>
             </div>
             <div class="mb-3">

@@ -51,9 +51,14 @@
             </div>
             <div class="mb-3">
                 <label for="midiPort" class="form-label">MIDI In port</label>
-                <select class="form-select" id="midiPort">
-                    <option value="">--Select MIDI In port--</option>
-                </select>
+                <div class="input-group">
+                    <select class="form-select" id="midiPort">
+                        <option value="">--Select MIDI In port--</option>
+                    </select>
+                    <button class="btn btn-outline-secondary" type="button">
+                        <i class="bi bi-arrow-clockwise"></i>
+                    </button>
+                </div>
                 <div class="form-text">The MIDI In port this program should listen to for note-on signals.</div>
                 <div class="alert alert-warning mt-3 d-none" id="noMidiPorts" role="alert">
                     No MIDI In ports were found. You probably want to install

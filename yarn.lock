@@ -890,6 +890,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"bootstrap-icons@npm:^1.11.3":
+  version: 1.11.3
+  resolution: "bootstrap-icons@npm:1.11.3"
+  checksum: 10c0/37eefd418c6bbbb304bdff0f2ed527f82c3c6f331d3e3a7c4aa8bbdbaf7118bb86725b024f85e7d738c613d48c7353cd81c09e58e9d8d34c5633960fdec8410b
+  languageName: node
+  linkType: hard
+
 "bootstrap@npm:^5.3.3":
   version: 5.3.3
   resolution: "bootstrap@npm:5.3.3"
@@ -1193,6 +1200,7 @@ __metadata:
     "@julusian/midi": "npm:^3.6.1"
     "@popperjs/core": "npm:^2.11.8"
     bootstrap: "npm:^5.3.3"
+    bootstrap-icons: "npm:^1.11.3"
     electron: "npm:33.2.1"
     electron-squirrel-startup: "npm:^1.0.1"
     electron-store: "npm:^10.0.0"

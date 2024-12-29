@@ -1,26 +1,40 @@
-async function populatePortsAndSettings() {
-  const midiPorts = await window.electronAPI.getMidiPorts();
-
-  const midiPortSelect = document.getElementById('midiPort');
-  if (midiPorts.length == 0) {
-    document.getElementById('noMidiPorts').classList.remove("d-none");
-  }
-  for (let i in midiPorts) {
-    let option = document.createElement('option');
-    option.innerHTML = midiPorts[i];
-    option.setAttribute('value', midiPorts[i]);
-    midiPortSelect.append(option);
-  }
-
-  const settings = await window.electronAPI.getSettings();
+const populateSettings = async () => {
+  const settings = await window.electronAPI.getSettings()
   document.getElementById('companionHost').value = settings.companionHost
   document.getElementById('companionPort').value = settings.companionPort
+  document.getElementById('pageOffset').value = settings.pageOffset
+  document.getElementById('autoRun').checked = (settings.autoRun ? 'checked' : '')
+}
+
+const populatePorts = async (event) => {
+  // Remove all but '--Select MIDI In port--'
+  for (const el of document.querySelectorAll('#midiPort option')) {
+    if (el.value !== '') {
+      el.remove()
+    }
+  }
+
+  const midiPorts = await window.electronAPI.getMidiPorts()
+
+  const midiPortSelect = document.getElementById('midiPort')
+  if (midiPorts.length == 0) {
+    document.getElementById('noMidiPorts').classList.remove("d-none")
+  } else {
+    document.getElementById('noMidiPorts').classList.add("d-none")
+  }
+  
+  for (let i in midiPorts) {
+    let option = document.createElement('option')
+    option.innerHTML = midiPorts[i]
+    option.setAttribute('value', midiPorts[i])
+    midiPortSelect.append(option)
+  }
+
   // Only set midi port if the existing value actually exists as a MIDI in port
+  const settings = await window.electronAPI.getSettings()
   if (midiPorts.indexOf(settings.midiPort) != -1) {
     document.getElementById('midiPort').value = settings.midiPort
   }
-  document.getElementById('pageOffset').value = settings.pageOffset
-  document.getElementById('autoRun').checked = (settings.autoRun ? 'checked' : '')
 }
 
 const save = async (event) => {
@@ -39,7 +53,9 @@ const save = async (event) => {
 }
 
 const load = async () => {
-  populatePortsAndSettings()
+  await populateSettings()
+  await populatePorts()
   document.getElementById('saveButton').addEventListener('click', save)
+  document.getElementById('refreshButton').addEventListener('click', populatePorts)
 }
 load()

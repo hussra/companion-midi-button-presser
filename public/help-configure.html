@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP -->
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; img-src 'self' data:;" />
+    <meta http-equiv="X-Content-Security-Policy"
+        content="default-src 'self'; script-src 'self'; img-src 'self' data:;" />
+    <title>Companion Midi Button Presser</title>
+    <link type="text/css" rel="stylesheet" href="./style.css" />
+</head>
+
+<body>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-9 p-3">
+                <h1>Companion Midi Button Presser</h1>
+            </div>
+            <div class="col-3 text-end p-3">
+                <img src="../assets/CompanionMidiButtonPresser.png" width="50" />
+            </div>
+        </div>
+    </div>
+
+    <ul class="nav nav-tabs justify-content-center">
+        <li class="nav-item">
+            <a class="nav-link" href="settings.html">Settings</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="help.html">Help</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="about.html">About</a>
+        </li>
+    </ul>
+
+    <div class="tab-content m-3">
+        <ul class="nav nav-underline justify-content-center">
+            <li class="nav-item"><a class="nav-link" href="help.html">Quick start</a></li>
+            <li class="nav-item"><a class="nav-link" href="help-prequisites.html">Prerequisites</a></li>
+            <li class="nav-item"><a class="nav-link active" href="help-configure.html">Configuring</a></li>
+            <li class="nav-item"><a class="nav-link" href="help-sendmidi.html">Send MIDI</a></li>
+        </ul>
+        <h2>Configuring</h2>
+        <p>You can now turn to the <a href="settings.html">settings tab</a> within this program.</p>
+        <p class="text-center"><img src="images/CMBP1.png" class="img-fluid"
+                alt="Screenshot of the Companion MIDI Button Presser settings screen" /></p>
+        <p>The <b>Companion host</b> and <b>Companion port</b> fields tell this program where to find Companion.
+            The default settings will work if Companion is funning on the same computer as this program, unless
+            you have selected a non-standard network interface or port number in Companion's settings.</p>
+        <p>The <b>MIDI In port</b> is where you pick the MIDI port you want to listen on - e.g. the
+            <b>loopMIDI Port</b> you created if you followed the earlier section of these instructions.
+        </p>
+        <p class="text-center"><img src="images/CMBP2.png" class="img-fluid"
+                alt="Screenshot showing selection of a MIDI In port" /></p>
+        <p><b>Page offset</b>: By default, this module will let you "press" buttons on Companion pages 1 to 16.
+            If you need to access a different range of pages, you can set an offset here - e.g. if you pick a
+            page offset of 20, then this module will let you "press" buttons on Companion pages 21 to 36.</p>
+        <p>The <b>Run automatically when I log in</b> checkbox will do exactly what it says on the tin.</p>
+    </div>
+</body>
+
+</html>

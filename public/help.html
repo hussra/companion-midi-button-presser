@@ -37,118 +37,41 @@
     </ul>
 
     <div class="tab-content m-3">
+        <ul class="nav nav-underline justify-content-center">
+            <li class="nav-item"><a class="nav-link active" href="help.html">Quick start</a></li>
+            <li class="nav-item"><a class="nav-link" href="help-prequisites.html">Prerequisites</a></li>
+            <li class="nav-item"><a class="nav-link" href="help-configure.html">Configuring</a></li>
+            <li class="nav-item"><a class="nav-link" href="help-sendmidi.html">Send MIDI</a></li>
+        </ul>
+        <h2>Quick start</h2>
         <p>This program provides a straightforward, easy-to-set-up way to press buttons in
-            <a href="https://bitfocus.io/companion">BitFocus Companion</a> by listening to
-            MIDI note-on messages.
+            <a href="https://bitfocus.io/companion" target="_blank">BitFocus Companion</a>
+            by listening to MIDI note-on messages from software such as
+            <a href="https://proclaim.logos.com/" target="_blank">Proclaim</a>
+            or
+            <a href="https://www.renewedvision.com/propresenter" target="_blank">ProPresenter</a>.
         </p>
-
-        <p></p>This is useful to users of software such as <a href="https://proclaim.logos.com/">Proclaim</a>
-        or <a href="https://www.renewedvision.com/propresenter">ProPresenter</a> which can be configured
-        to send MIDI note-on messages.</p>
-
-        <h2>Prerequisites</h2>
-        <p>
-            On Windows, you will need to start by setting up a suitable MIDI port that for this program to
-            listen to.
-        </p>
-        <p>
-            If this program and Proclaim/ProPresenter will be running on the same Windows PC, use
-            <a href="https://www.tobias-erichsen.de/software/loopmidi.html">loopMIDI</a> to create a
-            MIDI "loopback" port.
-        </p>
-        <p>
-            If you want program and Proclaim/ProPresenter to run on different computers, you will need
-            to set up network MIDI e.g. using <a href="https://www.tobias-erichsen.de/software/rtpmidi.html">rtpMIDI</a>
-            on Windows, or the <a href="https://support.apple.com/en-gb/guide/audio-midi-setup/ams1012/mac">MIDI
-                Studio</a>
-            window in MacOS. Configuring this is beyond the scope of this help document.
-        </p>
-
-        <h2>Installing and configuring loopMIDI</h2>
-        <p>Download loopMIDI from the author's web site, unzip the downloaded file and run the setup program inside.</p>
-        <p>Tick the checkbox <b>I agree to the license terms and conditions</b>, and click <b>Install</b>.</p>
-        <p class="text-center"><img src="images/loopMIDI1.png" class="img-fluid"
-                alt="Screenshot of the first screen of the loopMIDI installation process" /></p>
-        <p>Once installation is complete, click <b>Launch</b>.</p>
-        <p class="text-center"><img src="images/loopMIDI2.png" class="img-fluid"
-                alt="Screenshot of successful completion of the loopMIDI installation process" /></p>
-        <p>Look in the Windows notification area for the loopMIDI icon (which looks like a 5-pin MIDI socket),
-            right-click the icon and select <b>Configure loopMIDI</b>.</p>
-        <p class="text-center"><img src="images/loopMIDI3.png" class="img-fluid"
-                alt="Screenshot of right-clicking the loopMIDI icon in the notification area" /></p>
-        <p>Name the MIDI port to be created (the default <b>loopMIDI Port</b> is fine in most cases) and click the
-            <b>+</b> button bottom left.
-        </p>
-        <p class="text-center"><img src="images/loopMIDI4.png" class="img-fluid"
-                alt="Screenshot of the loopMIDI window with no ports listed" /></p>
-        <p>The new MIDI port will be listed in the <b>My loopback MIDI ports</b> section.</p>
-        <p class="text-center"><img src="images/loopMIDI5.png" class="img-fluid"
-                alt="Screenshot of the loopMIDI window once a port has been added" /></p>
-
-        <h2>Configuring Companion MIDI Button Presser</h2>
-        <p>You can now turn to the <a href="settings.html">settings tab</a> within this program.</p>
-        <p class="text-center"><img src="images/CMBP1.png" class="img-fluid"
-                alt="Screenshot of the Companion MIDI Button Presser settings screen" /></p>
-        <p>The <b>Companion host</b> and <b>Companion port</b> fields tell this program where to find Companion.
-            The default settings will work if Companion is funning on the same computer as this program, unless
-            you have selected a non-standard network interface or port number in Companion's settings.</p>
-        <p>The <b>MIDI In port</b> is where you pick the MIDI port you want to listen on - e.g. the
-            <b>loopMIDI Port</b> you created if you followed the earlier section of these instructions.
-        </p>
-        <p class="text-center"><img src="images/CMBP2.png" class="img-fluid"
-                alt="Screenshot showing selection of a MIDI In port" /></p>
-        <p><b>Page offset</b>: By default, this module will let you "press" buttons on Companion pages 1 to 16.
-            If you need to access a different range of pages, you can set an offset here - e.g. if you pick a
-            page offset of 20, then this module will let you "press" buttons on Companion pages 21 to 36.</p>
-        <p>The <b>Run automatically when I log in</b> checkbox will do exactly what it says on the tin.</p>
-
-        <h3>Sending MIDI messages and pressing buttons</h3>
-        <p>Now you can send a MIDI Note-On message to this module program through the selected MIDI port and
-            cause a button press in Companion.</p>
-        <p>We use a very simple mapping of Note-On MIDI messages to buttons in Companion:</p>
         <ul>
-            <li>
-                Midi Channel = Button Page<br />
-                unless you have set the "page offset" to something other than 0, in which case:<br />
-                Midi Channel + Page Offset = Button Page
+            <li><b><a href="help-prequisites.html">Prerequisites:</a></b> make sure there is a suitable MIDI port
+                available for this program to listen on. On Windows, install
+                <a href="https://www.tobias-erichsen.de/software/loopmidi.html" target="_blank">loopMIDI</a>
+                and create a loopback MIDI port
             </li>
-            <li>Note = Row of button</li>
-            <li>Velocity (intensity) = Column of button</li>
+            <li><b><a href="help-configure.html">Install and configure</a></b> this program in its <a
+                    href="settings.html">settings tab</a>, including selecting
+                the MIDI port to listen on</li>
+            <li><b><a href="help-sendmidi.html">Send MIDI notes</a></b> from Proclaim, ProPresenter or other software of
+                your choice to the same MIDI port,
+                with:
+                <ul>
+                    <li>MIDI channel = Companion page number</li>
+                    <li>Note = Companion button row number</li>
+                    <li>Velocity = Companion button column number</li>
+                </ul>
+                For example, to press Companion button 1/0/2, send a MIDI note-on with channel=1, note=0, velocity=2
+            </li>
+            <li>If you need to acccess a Companion button beyond page 16, use the <b>Page offset</b> setting</li>
         </ul>
-        <p>So, for example, the third button on the top row of the first page of Companion buttons is
-            known within Companion as button <b>1/0/2</b> (page 1, row 0, column 2 - pages start at 1,
-            rows and columns start at 0).</p>
-        <p>To press this button, if your page offset is 0, send a MIDI Note-On message to
-            your selected MIDI port with:
-        </p>
-        <ul>
-            <li>Midi Channel = 1</li>
-            <li>Note = 0</li>
-            <li>Intensity = 2</li>
-        </ul>
-        <h4>Proclaim setup</h4>
-        <p>To send this message within Proclaim, go to <b>Settings &gt; Lighting/MIDI</b> and click
-            <b>Add scene</b>. Within the <b>Edit Scene</b> dialog, enter a scene name, and click
-            <b>Add control</b> then MIDI:
-        </p>
-        <p class="text-center"><img src="images/Proclaim1.png" class="img-fluid"
-                alt="Screenshot showing the Proclaim Edit Scene dialog, with Add control > MIDI selected" /></p>
-        <p>
-            Pick the MIDI port where Companion MIDI Button Presser is listening, then click
-            <b>Add note</b>:
-        </p>
-        <p class="text-center"><img src="images/Proclaim2.png" class="img-fluid"
-                alt="Screenshot showing the Add note button about to be pressed" /></p>
-        <p>Finally, leave the first option as <b>note on</b>, pick the button row number
-            as the <b>Note</b>, the button column number as the <b>Velocity</b>, and page number
-            as the <b>Channel</b>. For example, to press Companion button 1/0/2:</p>
-        <p class="text-center"><img src="images/Proclaim3.png" class="img-fluid"
-                alt="Screenshot showing MIDI message configured as Note on, note 0, velocity 2, channel 1" /></p>
-        <p>You can use the <b>Preview</b> link to test the scene, then save it.</p>
-        <p>Finally, you can attach your scene to an item/slide in Proclaim in the edit view by
-            going to the <b>Signals</b> tab and clicking <b>Add Signal &gt; Lighting</b> and
-            picking the Scene name you entered.
-        </p>
     </div>
 </body>
 

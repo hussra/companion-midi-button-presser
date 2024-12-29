@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP -->
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; img-src 'self' data:;" />
+    <meta http-equiv="X-Content-Security-Policy"
+        content="default-src 'self'; script-src 'self'; img-src 'self' data:;" />
+    <title>Companion Midi Button Presser</title>
+    <link type="text/css" rel="stylesheet" href="./style.css" />
+</head>
+
+<body>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-9 p-3">
+                <h1>Companion Midi Button Presser</h1>
+            </div>
+            <div class="col-3 text-end p-3">
+                <img src="../assets/CompanionMidiButtonPresser.png" width="50" />
+            </div>
+        </div>
+    </div>
+
+    <ul class="nav nav-tabs justify-content-center">
+        <li class="nav-item">
+            <a class="nav-link" href="settings.html">Settings</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="help.html">Help</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="about.html">About</a>
+        </li>
+    </ul>
+
+    <div class="tab-content m-3">
+        <ul class="nav nav-underline justify-content-center">
+            <li class="nav-item"><a class="nav-link" href="help.html">Quick start</a></li>
+            <li class="nav-item"><a class="nav-link" href="help-prequisites.html">Prerequisites</a></li>
+            <li class="nav-item"><a class="nav-link" href="help-configure.html">Configuring</a></li>
+            <li class="nav-item"><a class="nav-link active" href="help-sendmidi.html">Send MIDI</a></li>
+        </ul>
+        <h2>Sending MIDI messages</h2>
+        <p>Now you can send a MIDI Note-On message to this module program through the selected MIDI port and
+            cause a button press in Companion.</p>
+        <p>We use a very simple mapping of Note-On MIDI messages to buttons in Companion:</p>
+        <ul>
+            <li>
+                Midi Channel = Button Page<br />
+                unless you have set the "page offset" to something other than 0, in which case:<br />
+                Midi Channel + Page Offset = Button Page
+            </li>
+            <li>Note = Row of button</li>
+            <li>Velocity (intensity) = Column of button</li>
+        </ul>
+        <p>So, for example, the third button on the top row of the first page of Companion buttons is
+            known within Companion as button <b>1/0/2</b> (page 1, row 0, column 2 - pages start at 1,
+            rows and columns start at 0).</p>
+        <p>To press this button, if your page offset is 0, send a MIDI Note-On message to
+            your selected MIDI port with:
+        </p>
+        <ul>
+            <li>Midi Channel = 1</li>
+            <li>Note = 0</li>
+            <li>Intensity = 2</li>
+        </ul>
+        <h4>Proclaim setup</h4>
+        <p>To send this message within Proclaim, go to <b>Settings &gt; Lighting/MIDI</b> and click
+            <b>Add scene</b>. Within the <b>Edit Scene</b> dialog, enter a scene name, and click
+            <b>Add control</b> then MIDI:
+        </p>
+        <p class="text-center"><img src="images/Proclaim1.png" class="img-fluid"
+                alt="Screenshot showing the Proclaim Edit Scene dialog, with Add control > MIDI selected" /></p>
+        <p>
+            Pick the MIDI port where Companion MIDI Button Presser is listening, then click
+            <b>Add note</b>:
+        </p>
+        <p class="text-center"><img src="images/Proclaim2.png" class="img-fluid"
+                alt="Screenshot showing the Add note button about to be pressed" /></p>
+        <p>Finally, leave the first option as <b>note on</b>, pick the button row number
+            as the <b>Note</b>, the button column number as the <b>Velocity</b>, and page number
+            as the <b>Channel</b>. For example, to press Companion button 1/0/2:</p>
+        <p class="text-center"><img src="images/Proclaim3.png" class="img-fluid"
+                alt="Screenshot showing MIDI message configured as Note on, note 0, velocity 2, channel 1" /></p>
+        <p>You can use the <b>Preview</b> link to test the scene, then save it.</p>
+        <p>Finally, you can attach your scene to an item/slide in Proclaim in the edit view by
+            going to the <b>Signals</b> tab and clicking <b>Add Signal &gt; Lighting</b> and
+            picking the Scene name you entered.
+        </p>
+    </div>
+</body>
+
+</html>

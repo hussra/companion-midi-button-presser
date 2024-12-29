@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP -->
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; img-src 'self' data:;" />
+    <meta http-equiv="X-Content-Security-Policy"
+        content="default-src 'self'; script-src 'self'; img-src 'self' data:;" />
+    <title>Companion Midi Button Presser</title>
+    <link type="text/css" rel="stylesheet" href="./style.css" />
+</head>
+
+<body>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-9 p-3">
+                <h1>Companion Midi Button Presser</h1>
+            </div>
+            <div class="col-3 text-end p-3">
+                <img src="../assets/CompanionMidiButtonPresser.png" width="50" />
+            </div>
+        </div>
+    </div>
+
+    <ul class="nav nav-tabs justify-content-center">
+        <li class="nav-item">
+            <a class="nav-link" href="settings.html">Settings</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="help.html">Help</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="about.html">About</a>
+        </li>
+    </ul>
+
+    <div class="tab-content m-3">
+        <ul class="nav nav-underline justify-content-center">
+            <li class="nav-item"><a class="nav-link" href="help.html">Quick start</a></li>
+            <li class="nav-item"><a class="nav-link active" href="help-prequisites.html">Prerequisites</a></li>
+            <li class="nav-item"><a class="nav-link" href="help-configure.html">Configuring</a></li>
+            <li class="nav-item"><a class="nav-link" href="help-sendmidi.html">Send MIDI</a></li>
+        </ul>
+        <h2>Prerequisites</h2>
+        <p>
+            On Windows, you will need to start by setting up a suitable MIDI port that for this program to
+            listen to.
+        </p>
+        <p>
+            If this program and Proclaim/ProPresenter will be running on the same Windows PC, use
+            <a href="https://www.tobias-erichsen.de/software/loopmidi.html" target="_blank">loopMIDI</a>
+            to create a MIDI "loopback" port.
+        </p>
+        <p>
+            If you want program and Proclaim/ProPresenter to run on different computers, you will need
+            to set up network MIDI e.g. using
+            <a href="https://www.tobias-erichsen.de/software/rtpmidi.html" target="_blank">rtpMIDI</a>
+            on Windows, or the
+            <a href="https://support.apple.com/en-gb/guide/audio-midi-setup/ams1012/mac" target="_blank">MIDI Studio</a>
+            window in MacOS. Configuring this is beyond the scope of this help document.
+        </p>
+    </div>
+</body>
+
+</html>

@@ -1,6 +1,5 @@
 import { app, ipcMain } from 'electron'
 
-import setAboutPanelOptions from './about.js'
 import { openWindow } from './window.js'
 import createTray from './tray.js'
 import addIpcHandlers from './ipcHandlers.js'
@@ -24,7 +23,6 @@ if (!app.requestSingleInstanceLock()) {
   app.whenReady().then(() => {
     addIpcHandlers()
     createTray()
-    setAboutPanelOptions()
 
     if (isConfigured()) {
       startListening()

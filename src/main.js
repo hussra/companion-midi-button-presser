@@ -5,7 +5,7 @@ import { openWindow } from './window.js'
 import createTray from './tray.js'
 import addIpcHandlers from './ipcHandlers.js'
 import { isConfigured, onSettingsSaved } from './settings.js'
-import { startListening, stopListening } from './midi.js'
+import { startListening, stopListening, isConnected } from './midi.js'
 
 import started from 'electron-squirrel-startup'
 
@@ -28,11 +28,14 @@ if (!app.requestSingleInstanceLock()) {
 
     if (isConfigured()) {
       startListening()
-    } else {
-      openWindow('settings.html')
     }
     
+    if (!isConnected()) {
+      openWindow('settings.html')
+    }
+
     onSettingsSaved((newValue, oldValue) => {
+      console.log('onSettingsSaved')
       stopListening()
 
       if (isConfigured()) {

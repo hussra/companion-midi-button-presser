@@ -1,22 +1,27 @@
 import { Input } from '@julusian/midi'
-import { getSettings } from './settings.js'
+import { getSettings, saveSettings } from './settings.js'
 
-let midi_input = new Input()
+let midi_input
 
 export function getMidiPorts() {
-  const port_count = midi_input.getPortCount();
+  const temp_midi_input = new Input()
+  const port_count = temp_midi_input.getPortCount();
   let ports = []
+
   for (let portIndex = 0; portIndex < port_count; portIndex++) {
-    ports.push(midi_input.getPortName(portIndex))
+    ports.push(temp_midi_input.getPortName(portIndex))
   }
+
+  temp_midi_input.destroy()
   return ports
 }
 
 export function startListening() {
+  midi_input = new Input()
   const settings = getSettings()
+	console.log(`Opening Midi port ${settings.midiPort}`)
   try {
-    console.log(`Opening MIDI port ${settings.midiPort}`)
-    midi_input.openPortByName(settings.midiPort)
+    let val = midi_input.openPortByName(settings.midiPort)
   } catch (error) {
     let message = 'Unknown Error'
 		if (error instanceof Error) message = error.message
@@ -36,16 +41,28 @@ export function startListening() {
     if (midiMessageIsNoteon) {
       pressCompanionButton(midiMessageChannel, midiMessageNote, midiMessageVelocity)
     }
-
   })
 }
 
 export function stopListening() {
-  if (midi_input.isPortOpen()) {
-		console.log('Closing Midi port')
-    midi_input.closePort()
+  console.log('Closing Midi port')
+  if (midi_input) {
     midi_input.destroy()
-    midi_input = new Input()
+  }
+}
+
+export function isConnected() {
+  let settings = getSettings()
+  if (settings.midiPort == '') {
+    return false
+  } else {
+    if (midi_input && midi_input.isPortOpen()) {
+      return true
+    } else {
+      settings.midiPort = ''
+      saveSettings(settings)
+      return false
+    }
   }
 }
 

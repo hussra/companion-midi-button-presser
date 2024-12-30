@@ -2,7 +2,7 @@
   "name": "companion-midi-button-presser",
   "version": "1.0.0",
   "description": "Companion MIDI Button Presser",
-  "main": "src/main.js",
+  "main": "src/main/main.js",
   "scripts": {
     "start": "electron-forge start",
     "package": "electron-forge package",

@@ -2,7 +2,7 @@ import { app, Tray, Menu, nativeImage } from 'electron'
 
 import { openWindow } from './window.js'
 import getIcon from './icon.js'
-import pkg from '../package.json' with { type: 'json' }
+import pkg from '../../package.json' with { type: 'json' }
 
 let tray
 

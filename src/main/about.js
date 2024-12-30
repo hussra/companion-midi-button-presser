@@ -1,6 +1,6 @@
 import { app } from 'electron'
 
-import pkg from '../package.json' with { type: 'json' }
+import pkg from '../../package.json' with { type: 'json' }
 
 export default function setAboutPanelOptions() {
     app.setAboutPanelOptions({

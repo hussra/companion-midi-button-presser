@@ -11,7 +11,7 @@ let mainWindow = null
 export function openWindow(page) {
   // If window already exists, make sure it is focussed, and load the required page
   if (mainWindow) {
-    mainWindow.loadFile(`public/${page}`)
+    mainWindow.loadFile(`src/renderer/${page}`)
     mainWindow.focus()
     return
   }
@@ -28,7 +28,7 @@ export function openWindow(page) {
 
   mainWindow.setIcon(getIcon())
 
-  mainWindow.loadFile(`public/${page}`)
+  mainWindow.loadFile(`src/renderer/${page}`)
 
   mainWindow.on('closed', () => {
     mainWindow = null

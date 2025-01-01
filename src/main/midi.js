@@ -76,7 +76,7 @@ function pressCompanionButton(page, row, column) {
   console.log(`Sending button press HTTP request to ${buttonPressURL}`)
 
   fetch(buttonPressURL, {
-    signal: AbortSignal.timeout(2000),
+    signal: AbortSignal.timeout(5000),
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',

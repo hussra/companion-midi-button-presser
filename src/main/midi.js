@@ -1,36 +1,36 @@
 import { Input } from '@julusian/midi'
 import { getSettings, saveSettings } from './settings.js'
 
-let midi_input
+let midiInput
 
 export function getMidiPorts() {
-  const temp_midi_input = new Input()
-  const port_count = temp_midi_input.getPortCount();
+  const tempMidiInput = new Input()
+  const portCount = tempMidiInput.getPortCount();
   let ports = []
 
-  for (let portIndex = 0; portIndex < port_count; portIndex++) {
-    ports.push(temp_midi_input.getPortName(portIndex))
+  for (let portIndex = 0; portIndex < portCount; portIndex++) {
+    ports.push(tempMidiInput.getPortName(portIndex))
   }
 
-  temp_midi_input.destroy()
+  tempMidiInput.destroy()
   return ports
 }
 
 export function startListening() {
-  midi_input = new Input()
+  midiInput = new Input()
   const settings = getSettings()
 	console.log(`Opening Midi port ${settings.midiPort}`)
   try {
-    let val = midi_input.openPortByName(settings.midiPort)
+    let val = midiInput.openPortByName(settings.midiPort)
   } catch (error) {
     let message = 'Unknown Error'
 		if (error instanceof Error) message = error.message
     console.log(`Error connecting MIDI port: ${settings.midiPort}: ${message}`)
   }
 
-  midi_input.removeAllListeners()
+  midiInput.removeAllListeners()
 
-  midi_input.on('message', async (deltaTime, message) => {
+  midiInput.on('message', async (deltaTime, message) => {
     const midiMessageIsNoteon = (message[0] & 0x90) == 0x90
     const midiMessageChannel = message[0] & 0x0f
     const midiMessageNote = message[1]
@@ -46,8 +46,8 @@ export function startListening() {
 
 export function stopListening() {
   console.log('Closing Midi port')
-  if (midi_input) {
-    midi_input.destroy()
+  if (midiInput) {
+    midiInput.destroy()
   }
 }
 
@@ -56,7 +56,7 @@ export function isConnected() {
   if (settings.midiPort == '') {
     return false
   } else {
-    if (midi_input && midi_input.isPortOpen()) {
+    if (midiInput && midiInput.isPortOpen()) {
       return true
     } else {
       settings.midiPort = ''

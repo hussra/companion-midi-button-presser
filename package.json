@@ -22,7 +22,9 @@
     "@electron-forge/plugin-auto-unpack-natives": "^7.8.1",
     "@electron-forge/plugin-fuses": "^7.8.1",
     "@electron/fuses": "^1.8.0",
-    "electron": "33.2.1"
+    "@electron/rebuild": "^4.0.1",
+    "electron": "^36.4.0",
+    "node-abi": "^4.9.0"
   },
   "dependencies": {
     "@julusian/midi": "^3.6.1",

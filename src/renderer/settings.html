@@ -10,6 +10,7 @@
         content="default-src 'self'; script-src 'self'; img-src 'self' data:;" />
     <title>Companion Midi Button Presser</title>
     <link type="text/css" rel="stylesheet" href="style.css" />
+    <script src="../../node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
 </head>
 
 <body>
@@ -68,21 +69,193 @@
                 </div>
             </div>
             <div class="mb-3">
-                <label for="pageOffset" class="form-label">Page offset</label>
-                <input class="form-control" type="number" min="0" max="500" id="pageOffset" />
-                <div class="form-text">If you need to access a different range of pages, rather than the default
-                    pages 1-16, you can set an offset here.</div>
-            </div>
-            <div class="mb-3">
                 <div class="form-check">
                     <input class="form-check-input" type="checkbox" value="true" id="autoRun" />
                     <label class="form-check-label" for="autoRun">Run automatically when I log in</label>
                 </div>
             </div>
-            <div>
-                <button id="saveButton" class="btn btn-primary">Save</button>
+
+            <div class="accordion mb-3" id="settingsAccordion">
+                <div class="accordion-item">
+                    <h2 class="accordion-header">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#advancedSettings" aria-expanded="false" aria-controls="advancedSettings">
+                            Advanced Settings
+                        </button>
+                    </h2>
+                    <div id="advancedSettings" class="accordion-collapse collapse" data-bs-parent="#settingsAccordion">
+                        <div class="accordion-body">
+
+                            <div class="mb-3">
+                                <label for="pageOffset" class="form-label">Page offset</label>
+                                <input class="form-control" type="number" min="0" max="500" id="pageOffset" />
+                                <div class="form-text">If you need to access a different range of pages, rather than the
+                                    default pages 1-16, you can set an offset here.</div>
+                            </div>
+
+                            <div class="mb-3">
+                                <div class="form-label">Enable/disable MIDI channels</div>
+                                <div class="row">
+                                    <div class="col">
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="checkbox" value=""
+                                                id="enableChannel1">
+                                            <label class="form-check-label" for="enableChannel1">
+                                                1
+                                            </label>
+                                        </div>
+                                    </div>
+                                    <div class="col">
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="checkbox" value=""
+                                                id="enableChannel2">
+                                            <label class="form-check-label" for="enableChannel2">
+                                                2
+                                            </label>
+                                        </div>
+                                    </div>
+                                    <div class="col">
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="checkbox" value=""
+                                                id="enableChannel3">
+                                            <label class="form-check-label" for="enableChannel3">
+                                                3
+                                            </label>
+                                        </div>
+                                    </div>
+                                    <div class="col">
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="checkbox" value=""
+                                                id="enableChannel4">
+                                            <label class="form-check-label" for="enableChannel4">
+                                                4
+                                            </label>
+                                        </div>
+                                    </div>
+                                    <div class="col">
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="checkbox" value=""
+                                                id="enableChannel5">
+                                            <label class="form-check-label" for="enableChannel5">
+                                                5
+                                            </label>
+                                        </div>
+                                    </div>
+                                    <div class="col">
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="checkbox" value=""
+                                                id="enableChannel6">
+                                            <label class="form-check-label" for="enableChannel6">
+                                                6
+                                            </label>
+                                        </div>
+                                    </div>
+                                    <div class="col">
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="checkbox" value=""
+                                                id="enableChannel7">
+                                            <label class="form-check-label" for="enableChannel7">
+                                                7
+                                            </label>
+                                        </div>
+                                    </div>
+                                    <div class="col">
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="checkbox" value=""
+                                                id="enableChannel8">
+                                            <label class="form-check-label" for="enableChannel8">
+                                                8
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col">
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="checkbox" value=""
+                                                id="enableChannel9">
+                                            <label class="form-check-label" for="enableChannel9">
+                                                9
+                                            </label>
+                                        </div>
+                                    </div>
+                                    <div class="col">
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="checkbox" value=""
+                                                id="enableChannel10">
+                                            <label class="form-check-label" for="enableChannel10">
+                                                10
+                                            </label>
+                                        </div>
+                                    </div>
+                                    <div class="col">
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="checkbox" value=""
+                                                id="enableChannel11">
+                                            <label class="form-check-label" for="enableChannel11">
+                                                11
+                                            </label>
+                                        </div>
+                                    </div>
+                                    <div class="col">
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="checkbox" value=""
+                                                id="enableChannel12">
+                                            <label class="form-check-label" for="enableChannel12">
+                                                12
+                                            </label>
+                                        </div>
+                                    </div>
+                                    <div class="col">
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="checkbox" value=""
+                                                id="enableChannel13">
+                                            <label class="form-check-label" for="enableChannel13">
+                                                13
+                                            </label>
+                                        </div>
+                                    </div>
+                                    <div class="col">
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="checkbox" value=""
+                                                id="enableChannel14">
+                                            <label class="form-check-label" for="enableChannel14">
+                                                14
+                                            </label>
+                                        </div>
+                                    </div>
+                                    <div class="col">
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="checkbox" value=""
+                                                id="enableChannel15">
+                                            <label class="form-check-label" for="enableChannel15">
+                                                15
+                                            </label>
+                                        </div>
+                                    </div>
+                                    <div class="col">
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="checkbox" value=""
+                                                id="enableChannel16">
+                                            <label class="form-check-label" for="enableChannel16">
+                                                16
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-text">Occasionally you might want this program not to respond to
+                                    certain MIDI channels. If so, you can disable them here.</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
-        </form>
+    </div>
+
+    <div>
+        <button id="saveButton" class="btn btn-primary">Save</button>
+    </div>
+    </form>
     </div>
 
 </body>

@@ -38,8 +38,7 @@ export function startListening() {
 
     const channelEnabled = getSettings().channelEnabled[channel]
 
-    console.log(`MIDI Message: Channel: ${channel}, Note On?: ${noteOn}, Note: ${note}, Velocity: ${velocity}, Channel enabled: ${channelEnabled}`,
-    )
+    console.log(`Channel: ${channel}, Note On?: ${noteOn}, Note: ${note}, Velocity: ${velocity}, Channel enabled: ${channelEnabled}`)
     if (noteOn && channelEnabled) {
       pressCompanionButton(channel, note, velocity)
     }

@@ -25,10 +25,19 @@ const schema = {
   autoRun: {
     type: 'boolean',
     default: false
+  },
+  channelEnabled: {
+    type: 'array',
+    items: {
+      type: 'boolean'
+    },
+    minItems: 16,
+    maxItems: 16,
+    default: new Array(16).fill(true)
   }
 };
 
-const store = new Store( {schema} )
+const store = new Store({ schema })
 
 export function onSettingsSaved(func) {
   store.onDidAnyChange(func)
@@ -40,7 +49,8 @@ export function getSettings() {
     companionPort: store.get('companionPort'),
     midiPort: store.get('midiPort'),
     pageOffset: store.get('pageOffset'),
-    autoRun: store.get('autoRun')
+    autoRun: store.get('autoRun'),
+    channelEnabled: store.get('channelEnabled')
   }
 }
 

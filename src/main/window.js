@@ -20,7 +20,7 @@ export function openWindow(page) {
     width: 800,
     height: 800,
     webPreferences: {
-      // devTools: false,
+      devTools: false,
       preload: path.join(__dirname, 'preload.js')
     },
   })

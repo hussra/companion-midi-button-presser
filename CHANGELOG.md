@@ -10,7 +10,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Added
 
 - Ability to enable/disable individual MIDI channels (all enabled by default)
-- This Changelog, and link to it from About tab
+- "Advanced Settings" section for lesser-used settings
+- This Changelog, and link to it from "About" tab
 
 ### Changed
 

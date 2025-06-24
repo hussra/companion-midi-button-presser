@@ -957,12 +957,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"bootstrap@npm:^5.3.6":
-  version: 5.3.6
-  resolution: "bootstrap@npm:5.3.6"
+"bootstrap@npm:^5.3.7":
+  version: 5.3.7
+  resolution: "bootstrap@npm:5.3.7"
   peerDependencies:
     "@popperjs/core": ^2.11.8
-  checksum: 10c0/1b3f8f4f265463b3cd6aece84135b521ff55f3225a5c16c6981fdd8fb2bfb53b35b0815bff63382e5c83f6d537c017ae8392afe34366d5d547e4fd507d086e1c
+  checksum: 10c0/019f0d683aec843b9fc0592ae78560cfe286bc8e31e706d40d8c15d390dcca7ab2ffa193a489a74f65ed5596800b9b79da867545ce3bbafca945b630fe0055af
   languageName: node
   linkType: hard
 
@@ -1263,11 +1263,11 @@ __metadata:
     "@electron/rebuild": "npm:^4.0.1"
     "@julusian/midi": "npm:^3.6.1"
     "@popperjs/core": "npm:^2.11.8"
-    bootstrap: "npm:^5.3.6"
+    bootstrap: "npm:^5.3.7"
     bootstrap-icons: "npm:^1.13.1"
     electron: "npm:^36.4.0"
     electron-squirrel-startup: "npm:^1.0.1"
-    electron-store: "npm:^10.0.1"
+    electron-store: "npm:^10.1.0"
     node-abi: "npm:^4.9.0"
   languageName: unknown
   linkType: soft
@@ -1286,9 +1286,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"conf@npm:^13.0.0":
-  version: 13.1.0
-  resolution: "conf@npm:13.1.0"
+"conf@npm:^14.0.0":
+  version: 14.0.0
+  resolution: "conf@npm:14.0.0"
   dependencies:
     ajv: "npm:^8.17.1"
     ajv-formats: "npm:^3.0.1"
@@ -1297,9 +1297,9 @@ __metadata:
     dot-prop: "npm:^9.0.0"
     env-paths: "npm:^3.0.0"
     json-schema-typed: "npm:^8.0.1"
-    semver: "npm:^7.6.3"
+    semver: "npm:^7.7.2"
     uint8array-extras: "npm:^1.4.0"
-  checksum: 10c0/1fe4fcaf8ba4e8cf65054da227262d36766df4a405da0cd15816d1091af61fdc612eca05eb072ca1828fd2022d7c13181810042565d4e01b16f988aa8246e0a0
+  checksum: 10c0/d1472ea24dad78d0d33dee47a795dfefe92fcdf2633763a8b35563989f22b2658e768c9d338de8e8e5f9163525d22df9e5f8733094d822a8329f4571dedce208
   languageName: node
   linkType: hard
 
@@ -1523,13 +1523,13 @@ __metadata:
   languageName: node
   linkType: hard
 
-"electron-store@npm:^10.0.1":
-  version: 10.0.1
-  resolution: "electron-store@npm:10.0.1"
+"electron-store@npm:^10.1.0":
+  version: 10.1.0
+  resolution: "electron-store@npm:10.1.0"
   dependencies:
-    conf: "npm:^13.0.0"
-    type-fest: "npm:^4.20.0"
-  checksum: 10c0/a66f82ce269bac9636f0c94cbfbe360c2d6aa63931075dc1247bebb4a0c11479793ae1ae155bbf12f48efa32fe0ffc0e6a6227a6de95c8812c7bc9cd3dc9cf6c
+    conf: "npm:^14.0.0"
+    type-fest: "npm:^4.41.0"
+  checksum: 10c0/a527a1957b09decbbb36828e299bb06c239ed9a7d406ceda07abe84d2a9dfd1920120c63859e42c9c7a0922b95b840c4f4e5d8db90256814445f22a8a48de07e
   languageName: node
   linkType: hard
 
@@ -3679,6 +3679,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"semver@npm:^7.7.2":
+  version: 7.7.2
+  resolution: "semver@npm:7.7.2"
+  bin:
+    semver: bin/semver.js
+  checksum: 10c0/aca305edfbf2383c22571cb7714f48cadc7ac95371b4b52362fb8eeffdfbc0de0669368b82b2b15978f8848f01d7114da65697e56cd8c37b0dab8c58e543f9ea
+  languageName: node
+  linkType: hard
+
 "serialize-error@npm:^7.0.1":
   version: 7.0.1
   resolution: "serialize-error@npm:7.0.1"
@@ -4080,10 +4089,17 @@ __metadata:
   languageName: node
   linkType: hard
 
-"type-fest@npm:^4.18.2, type-fest@npm:^4.20.0":
+"type-fest@npm:^4.18.2":
   version: 4.31.0
   resolution: "type-fest@npm:4.31.0"
   checksum: 10c0/a5bb69e3b0f82e068af8c645ac3d50b1fa5c588ebc83735a6add4ef6dacf277bb3605801f66c72c069af20120ee7387a3ae6dd84e12c152f5982784c710b4051
+  languageName: node
+  linkType: hard
+
+"type-fest@npm:^4.41.0":
+  version: 4.41.0
+  resolution: "type-fest@npm:4.41.0"
+  checksum: 10c0/f5ca697797ed5e88d33ac8f1fec21921839871f808dc59345c9cf67345bfb958ce41bd821165dbf3ae591cedec2bf6fe8882098dfdd8dc54320b859711a2c1e4
   languageName: node
   linkType: hard
 

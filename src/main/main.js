@@ -7,11 +7,15 @@ import { isConfigured, onSettingsSaved } from './settings.js'
 import { startListening, stopListening, isConnected } from './midi.js'
 
 import started from 'electron-squirrel-startup'
+import { updateElectronApp } from 'update-electron-app'
 
 // Handle creating/removing shortcuts on Windows when installing/uninstalling.
 if (started) {
   app.quit()
 }
+
+// Auto updates from GitHub releases
+updateElectronApp()
 
 if (!app.requestSingleInstanceLock()) {
   app.quit()
@@ -27,7 +31,7 @@ if (!app.requestSingleInstanceLock()) {
     if (isConfigured()) {
       startListening()
     }
-    
+
     if (!isConnected()) {
       openWindow('settings.html')
     }

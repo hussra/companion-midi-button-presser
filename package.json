@@ -3,6 +3,10 @@
   "productName": "Companion MIDI Button Presser",
   "version": "1.1.0",
   "description": "Companion MIDI Button Presser",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/hussra/companion-midi-button-presser.git"
+  },
   "main": "src/main/main.js",
   "scripts": {
     "start": "electron-forge start",
@@ -12,7 +16,7 @@
   },
   "author": "Richard Huss <richard@huss.org.uk>",
   "license": "MIT",
-  "packageManager": "yarn@4.4.1",
+  "packageManager": "yarn@4.9.2",
   "devDependencies": {
     "@electron-forge/cli": "^7.8.1",
     "@electron-forge/maker-deb": "^7.8.1",
@@ -32,7 +36,8 @@
     "bootstrap": "^5.3.7",
     "bootstrap-icons": "^1.13.1",
     "electron-squirrel-startup": "^1.0.1",
-    "electron-store": "^10.1.0"
+    "electron-store": "^10.1.0",
+    "update-electron-app": "^3.1.1"
   },
   "type": "module"
 }

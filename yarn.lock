@@ -1265,10 +1265,10 @@ __metadata:
     "@popperjs/core": "npm:^2.11.8"
     bootstrap: "npm:^5.3.7"
     bootstrap-icons: "npm:^1.13.1"
-    electron: "npm:^36.4.0"
+    electron: "npm:^37.2.0"
     electron-squirrel-startup: "npm:^1.0.1"
     electron-store: "npm:^10.1.0"
-    node-abi: "npm:^4.9.0"
+    node-abi: "npm:^4.12.0"
     update-electron-app: "npm:^3.1.1"
   languageName: unknown
   linkType: soft
@@ -1551,16 +1551,16 @@ __metadata:
   languageName: node
   linkType: hard
 
-"electron@npm:^36.4.0":
-  version: 36.4.0
-  resolution: "electron@npm:36.4.0"
+"electron@npm:^37.2.0":
+  version: 37.2.0
+  resolution: "electron@npm:37.2.0"
   dependencies:
     "@electron/get": "npm:^2.0.0"
     "@types/node": "npm:^22.7.7"
     extract-zip: "npm:^2.0.1"
   bin:
     electron: cli.js
-  checksum: 10c0/c82fab3fbda01e5be561509f362bbbce1179f50e6f2fe3b5262cbb622887ae7c0f8d0ac728190207d3fb9480f3144ce5ddfbd1a6145627c3d267cd24811e9fdf
+  checksum: 10c0/1c300f1fc41e683119f37d81ba874d12c867bf607a8c2fabbcb14dfa04b83ca81094f6f5119825441ed5eabab2a9cbed1e37102c528d6ec90b2cc55d6819e990
   languageName: node
   linkType: hard
 
@@ -2948,7 +2948,16 @@ __metadata:
   languageName: node
   linkType: hard
 
-"node-abi@npm:^4.2.0, node-abi@npm:^4.9.0":
+"node-abi@npm:^4.12.0":
+  version: 4.12.0
+  resolution: "node-abi@npm:4.12.0"
+  dependencies:
+    semver: "npm:^7.6.3"
+  checksum: 10c0/78a0697b1ea7da95bee5465d92772a883fb829ae01e89cf2b60c2af79bf784e422cdde9cc2f15684d5bafb9a0ac3d8e16292520107dc36eff30c541e23ac9fb7
+  languageName: node
+  linkType: hard
+
+"node-abi@npm:^4.2.0":
   version: 4.9.0
   resolution: "node-abi@npm:4.9.0"
   dependencies:

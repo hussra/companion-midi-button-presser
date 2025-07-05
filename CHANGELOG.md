@@ -13,7 +13,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Changed
 
-- Update Yarn
+- Update Yarn, Electron and dependencies
 
 ## [1.1.0]
 

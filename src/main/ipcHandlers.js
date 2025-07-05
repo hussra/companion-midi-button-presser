@@ -1,19 +1,22 @@
 import { ipcMain } from 'electron'
 
-import { getSettings, saveSettings } from './settings.js'
+import { getSettings, saveSettings, setChanged } from './settings.js'
 import { getMidiPorts } from './midi.js'
 
 export default function addIpcHandlers() {
   ipcMain.handle('getMidiPorts', () => {
     return getMidiPorts()
   })
-  
+
   ipcMain.handle('getSettings', () => {
     return getSettings()
   })
 
-  ipcMain.handle('saveSettings', async(event, settings) => {
+  ipcMain.handle('saveSettings', async (event, settings) => {
     saveSettings(settings)
-    return true
+  })
+
+  ipcMain.handle('setChanged', async (event, newValue) => {
+    setChanged(newValue)
   })
 }

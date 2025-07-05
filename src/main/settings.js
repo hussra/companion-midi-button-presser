@@ -43,6 +43,19 @@ const schema = {
 
 const store = new Store({ schema })
 
+let changed = false
+
+export function setChanged(newValue) {
+  console.log('setChanged to ' + newValue)
+  changed = newValue
+}
+
+export function isChanged() {
+  console.log('isChanged() ' + changed)
+  return changed
+}
+
+
 export function onSettingsSaved(func) {
   store.onDidAnyChange(func)
 }
@@ -61,6 +74,7 @@ export function getSettings() {
 
 export function saveSettings(newSettings) {
   store.set(newSettings)
+  changed = false
 }
 
 // Are we sufficiently configured to start listening for MIDI notes?

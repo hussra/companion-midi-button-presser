@@ -2,6 +2,7 @@ import { BrowserWindow, shell, dialog } from 'electron'
 import path from 'path'
 import { fileURLToPath } from 'url'
 import getIcon from './icon.js'
+import { isChanged } from './settings.js'
 
 const __filename = fileURLToPath(import.meta.url); // get the resolved path to the file
 const __dirname = path.dirname(__filename); // get the name of the directory
@@ -29,6 +30,22 @@ export function openWindow(page) {
   mainWindow.setIcon(getIcon())
 
   mainWindow.loadFile(`src/renderer/${page}`)
+
+  mainWindow.on('close', (e) => {
+    if (isChanged()) {
+      let response = dialog.showMessageBoxSync(this, {
+        type: 'question',
+        buttons: ['Discard changes', 'Cancel'],
+        title: 'Confirm',
+        message: 'Are you sure? You have unsaved changes.',
+        noLink: true
+      })
+
+      if (response == 1) {
+        e.preventDefault()
+      }
+    }
+  })
 
   mainWindow.on('closed', () => {
     mainWindow = null

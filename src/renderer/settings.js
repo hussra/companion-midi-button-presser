@@ -43,6 +43,16 @@ const populatePorts = async (event) => {
   }
 }
 
+const addEventListeners = () => {
+  document.querySelectorAll("#companionHost,#companionPort,#midiPort,#autoRun,#autoUpdate,#pageOffset,[id^='enableChannel']").forEach((item) => {
+    item.addEventListener('change', (e) => {
+      window.electronAPI.setChanged(true)
+    })
+  })
+  document.getElementById('saveButton').addEventListener('click', save)
+  document.getElementById('refreshButton').addEventListener('click', populatePorts)
+}
+
 const save = async (event) => {
   event.preventDefault()
 
@@ -68,7 +78,6 @@ const save = async (event) => {
 const load = async () => {
   await populateSettings()
   await populatePorts()
-  document.getElementById('saveButton').addEventListener('click', save)
-  document.getElementById('refreshButton').addEventListener('click', populatePorts)
+  addEventListeners()
 }
 load()

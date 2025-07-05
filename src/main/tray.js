@@ -1,4 +1,4 @@
-import { app, Tray, Menu, nativeImage } from 'electron'
+import { Tray, Menu } from 'electron'
 
 import { openWindow } from './window.js'
 import getIcon from './icon.js'
@@ -14,7 +14,6 @@ export default function createTray() {
     [
       { label: 'Settings', type: 'normal', click: () => { openWindow('settings.html') } },
       { label: 'Help', type: 'normal', click: () => { openWindow('help.html') } },
-      /*{ label: 'About', role: 'about' },*/
       { label: 'About', type: 'normal', click: () => { openWindow('about.html') } },
       { role: 'quit' }
     ]

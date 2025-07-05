@@ -1,4 +1,4 @@
-import { BrowserWindow, shell, app, nativeImage } from 'electron'
+import { BrowserWindow, shell, dialog } from 'electron'
 import path from 'path'
 import { fileURLToPath } from 'url'
 import getIcon from './icon.js'

@@ -3,7 +3,7 @@ import { app, ipcMain } from 'electron'
 import { openWindow } from './window.js'
 import createTray from './tray.js'
 import addIpcHandlers from './ipcHandlers.js'
-import { isConfigured, onSettingsSaved } from './settings.js'
+import { isConfigured, isAutoUpdateEnabled, onSettingsSaved } from './settings.js'
 import { startListening, stopListening, isConnected } from './midi.js'
 
 import started from 'electron-squirrel-startup'
@@ -14,8 +14,10 @@ if (started) {
   app.quit()
 }
 
-// Auto updates from GitHub releases
-updateElectronApp()
+// Auto update from GitHub releases (disabled by default)
+if (isAutoUpdateEnabled()) {
+  updateElectronApp()
+}
 
 if (!app.requestSingleInstanceLock()) {
   app.quit()

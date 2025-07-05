@@ -68,3 +68,8 @@ export function isConfigured() {
   const settings = getSettings()
   return (settings.companionHost != '') && (settings.midiPort != '')
 }
+
+export function isAutoUpdateEnabled() {
+  const settings = getSettings()
+  return settings.autoUpdate
+}

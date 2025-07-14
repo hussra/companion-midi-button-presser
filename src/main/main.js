@@ -22,9 +22,10 @@ if (!app.requestSingleInstanceLock()) {
   if ((process.platform == 'win32') && (getSettings().autoRun) /*&& (app.isPackaged)*/) {
     // Check the autoRun path is correct - was wrong in <= 1.2.0
 
-    var launcher = getAutorunLauncherPath()
+    let launcher = getAutorunLauncherPath()
+    let launchItems = app.getLoginItemSettings().launchItems
 
-    if (launcher != app.getLoginItemSettings().launchItems[0].path) {
+    if ((launchItems.length > 0) && (launcher != launchItems[0].path)) {
       setAutoRun(true)
     }
   }

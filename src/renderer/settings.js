@@ -5,6 +5,7 @@ const populateSettings = async () => {
   document.getElementById('companionPort').value = settings.companionPort
   document.getElementById('pageOffset').value = settings.pageOffset
   document.getElementById('autoRun').checked = (settings.autoRun ? 'checked' : '')
+  document.getElementById('autoUpdate').checked = (settings.autoUpdate ? 'checked' : '')
 
   for (let i = 0; i < 16; i++) {
     document.getElementById('enableChannel' + (i + 1)).checked = (settings.channelEnabled[i] ? 'checked' : '')
@@ -43,7 +44,7 @@ const populatePorts = async (event) => {
 }
 
 const addEventListeners = () => {
-  document.querySelectorAll("#companionHost,#companionPort,#midiPort,#autoRun,#pageOffset,[id^='enableChannel']").forEach((item) => {
+  document.querySelectorAll("#companionHost,#companionPort,#midiPort,#autoRun,#autoUpdate,#pageOffset,[id^='enableChannel']").forEach((item) => {
     item.addEventListener('change', (e) => {
       window.electronAPI.setChanged(true)
     })
@@ -66,6 +67,7 @@ const save = async (event) => {
     midiPort: document.getElementById('midiPort').value,
     pageOffset: parseInt(document.getElementById('pageOffset').value),
     autoRun: (document.getElementById('autoRun').checked),
+    autoUpdate: (document.getElementById('autoUpdate').checked),
     channelEnabled: channelEnabled
   }
 

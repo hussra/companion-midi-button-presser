@@ -1,7 +1,7 @@
 {
   "name": "companion-midi-button-presser",
   "productName": "Companion MIDI Button Presser",
-  "version": "1.2.1-dev",
+  "version": "1.2.0",
   "description": "Companion MIDI Button Presser",
   "repository": {
     "type": "git",
@@ -36,7 +36,8 @@
     "bootstrap": "^5.3.7",
     "bootstrap-icons": "^1.13.1",
     "electron-squirrel-startup": "^1.0.1",
-    "electron-store": "^10.1.0"
+    "electron-store": "^10.1.0",
+    "update-electron-app": "^3.1.1"
   },
   "type": "module"
 }

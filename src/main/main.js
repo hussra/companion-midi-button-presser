@@ -5,20 +5,14 @@ import { existsSync } from 'fs'
 import { openWindow } from './window.js'
 import createTray from './tray.js'
 import addIpcHandlers from './ipcHandlers.js'
-import { isConfigured, isAutoUpdateEnabled, onSettingsSaved, getSettings } from './settings.js'
+import { isConfigured, onSettingsSaved, getSettings } from './settings.js'
 import { startListening, stopListening, isConnected } from './midi.js'
 
 import started from 'electron-squirrel-startup'
-import { updateElectronApp } from 'update-electron-app'
 
 // Handle creating/removing shortcuts on Windows when installing/uninstalling.
 if (started) {
   app.quit()
-}
-
-// Auto update from GitHub releases (disabled by default)
-if (isAutoUpdateEnabled()) {
-  updateElectronApp()
 }
 
 if (!app.requestSingleInstanceLock()) {

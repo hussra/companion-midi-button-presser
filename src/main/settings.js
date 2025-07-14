@@ -26,10 +26,6 @@ const schema = {
     type: 'boolean',
     default: false
   },
-  autoUpdate: {
-    type: 'boolean',
-    default: false
-  },
   channelEnabled: {
     type: 'array',
     items: {
@@ -67,7 +63,6 @@ export function getSettings() {
     midiPort: store.get('midiPort'),
     pageOffset: store.get('pageOffset'),
     autoRun: store.get('autoRun'),
-    autoUpdate: store.get('autoUpdate'),
     channelEnabled: store.get('channelEnabled')
   }
 }
@@ -81,9 +76,4 @@ export function saveSettings(newSettings) {
 export function isConfigured() {
   const settings = getSettings()
   return (settings.companionHost != '') && (settings.midiPort != '')
-}
-
-export function isAutoUpdateEnabled() {
-  const settings = getSettings()
-  return settings.autoUpdate
 }

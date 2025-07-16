@@ -10,6 +10,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Changed
 
 - Special handling when upgrading from version 1.0.0, to ensure autorun works properly after upgrading
+- Update Electron
 
 ## [1.2.0]
 

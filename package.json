@@ -27,7 +27,7 @@
     "@electron-forge/plugin-fuses": "^7.8.1",
     "@electron/fuses": "^1.8.0",
     "@electron/rebuild": "^4.0.1",
-    "electron": "^37.2.0",
+    "electron": "^37.2.2",
     "node-abi": "^4.12.0"
   },
   "dependencies": {

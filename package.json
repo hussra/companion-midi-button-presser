@@ -1,7 +1,7 @@
 {
   "name": "companion-midi-button-presser",
   "productName": "Companion MIDI Button Presser",
-  "version": "1.2.1-dev",
+  "version": "1.2.1-beta",
   "description": "Companion MIDI Button Presser",
   "repository": {
     "type": "git",

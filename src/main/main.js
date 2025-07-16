@@ -25,13 +25,11 @@ if (!app.requestSingleInstanceLock()) {
   app.quit()
 } else {
 
-  if ((process.platform == 'win32') && (getSettings().autoRun) /*&& (app.isPackaged)*/) {
+  if ((process.platform == 'win32') && (getSettings().autoRun) && (app.isPackaged)) {
     // Check the autoRun path is correct - was wrong in <= 1.2.0
+    let launchItemsV100 = app.getLoginItemSettings({ path: getAutorunLauncherPathV100() }).launchItems
 
-    let launcher = getAutorunLauncherPath()
-    let launchItems = app.getLoginItemSettings().launchItems
-
-    if ((launchItems.length > 0) && (launcher != launchItems[0].path)) {
+    if (launchItemsV100.length > 0) {
       setAutoRun(true)
     }
   }
@@ -88,4 +86,10 @@ function getAutorunLauncherPath() {
   const stubLauncher = path.resolve(appFolder, '..', ourExeName)
 
   return existsSync(stubLauncher) ? stubLauncher : process.execPath
+}
+
+function getAutorunLauncherPathV100() {
+  const appFolder = path.dirname(process.execPath)
+  const ourExeName = path.basename(process.execPath)
+  return path.resolve(appFolder, '..', 'app-1.0.0', ourExeName)
 }

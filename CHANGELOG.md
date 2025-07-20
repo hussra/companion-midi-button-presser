@@ -42,7 +42,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - First release of Companion Midi Button Presser
 
-[1.2.1]: https://github.com/hussra/companion-midi-button-presser/compare/v1.2.0...v1.2.1-beta
+[1.2.1]: https://github.com/hussra/companion-midi-button-presser/compare/v1.2.0...v1.2.1
 [1.2.0]: https://github.com/hussra/companion-midi-button-presser/compare/v1.1.0...v1.2.0
 [1.1.0]: https://github.com/hussra/companion-midi-button-presser/compare/v1.0.0...v1.1.0
 [1.0.0]: https://github.com/hussra/companion-midi-button-presser/releases/tag/v1.0.0

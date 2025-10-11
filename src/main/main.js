@@ -51,7 +51,6 @@ if (!app.requestSingleInstanceLock()) {
     }
 
     onSettingsSaved((newValue, oldValue) => {
-      console.log('onSettingsSaved')
       stopListening()
 
       if (isConfigured()) {
@@ -73,7 +72,6 @@ if (!app.requestSingleInstanceLock()) {
 }
 
 function setAutoRun(enable) {
-  console.log('Setting autorun to ' + enable + ' with launcher path ' + getAutorunLauncherPath())
   app.setLoginItemSettings({
     openAtLogin: enable,
     path: getAutorunLauncherPath()

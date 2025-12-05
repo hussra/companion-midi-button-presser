@@ -27,8 +27,8 @@
     "@electron-forge/plugin-fuses": "^7.10.2",
     "@electron/fuses": "^2.0.0",
     "@electron/rebuild": "^4.0.1",
-    "electron": "^38.2.2",
-    "node-abi": "^4.14.0"
+    "electron": "^39.2.5",
+    "node-abi": "^4.24.0"
   },
   "resolutions": {
     "node-abi": "4.14.0"

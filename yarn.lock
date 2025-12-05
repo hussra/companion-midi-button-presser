@@ -1832,10 +1832,10 @@ __metadata:
     "@popperjs/core": "npm:^2.11.8"
     bootstrap: "npm:^5.3.8"
     bootstrap-icons: "npm:^1.13.1"
-    electron: "npm:^38.2.2"
+    electron: "npm:^39.2.5"
     electron-squirrel-startup: "npm:^1.0.1"
     electron-store: "npm:^11.0.2"
-    node-abi: "npm:^4.14.0"
+    node-abi: "npm:^4.24.0"
     update-electron-app: "npm:^3.1.1"
   languageName: unknown
   linkType: soft
@@ -2125,16 +2125,16 @@ __metadata:
   languageName: node
   linkType: hard
 
-"electron@npm:^38.2.2":
-  version: 38.2.2
-  resolution: "electron@npm:38.2.2"
+"electron@npm:^39.2.5":
+  version: 39.2.5
+  resolution: "electron@npm:39.2.5"
   dependencies:
     "@electron/get": "npm:^2.0.0"
     "@types/node": "npm:^22.7.7"
     extract-zip: "npm:^2.0.1"
   bin:
     electron: cli.js
-  checksum: 10c0/35b9e70745b65c9b35ebb481864323fcbc99be49aed74b67859de2aca4c2a40290661962c5ce631f83a7571952c69eb57979ef938999caebcabc9fe1de5a75c4
+  checksum: 10c0/d2c396cdbbd06c56c7a55264d485421501fcd65ffb1d88f6865766ffabd9c6ad912be75225c148f6087fe773c25537f5d870d79eba7a599136756c10b20cf38f
   languageName: node
   linkType: hard
 

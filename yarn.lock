@@ -441,12 +441,11 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@electron/rebuild@npm:^4.0.1":
-  version: 4.0.1
-  resolution: "@electron/rebuild@npm:4.0.1"
+"@electron/rebuild@npm:^4.0.2":
+  version: 4.0.2
+  resolution: "@electron/rebuild@npm:4.0.2"
   dependencies:
     "@malept/cross-spawn-promise": "npm:^2.0.0"
-    chalk: "npm:^4.0.0"
     debug: "npm:^4.1.1"
     detect-libc: "npm:^2.0.1"
     got: "npm:^11.7.0"
@@ -459,9 +458,12 @@ __metadata:
     semver: "npm:^7.3.5"
     tar: "npm:^6.0.5"
     yargs: "npm:^17.0.1"
+  dependenciesMeta:
+    electron:
+      built: true
   bin:
     electron-rebuild: lib/cli.js
-  checksum: 10c0/4863d39c34515f3fb521ce5e976e25db20e89920574ca353efd0c3272d5f4d14546ba15ce28cee4299187160b2af02e3e130100ba8dc53f313b6eb685dc54928
+  checksum: 10c0/e74af1d22c7ed155e8326c97ff1c05ff0b508252f3f9a3c86d0eedb0dbf2f34768ed2accc468d94c755bdf4dabb5dee6a59f7719652697223afa13235c62297b
   languageName: node
   linkType: hard
 
@@ -1827,16 +1829,16 @@ __metadata:
     "@electron-forge/plugin-auto-unpack-natives": "npm:^7.10.2"
     "@electron-forge/plugin-fuses": "npm:^7.10.2"
     "@electron/fuses": "npm:^2.0.0"
-    "@electron/rebuild": "npm:^4.0.1"
+    "@electron/rebuild": "npm:^4.0.2"
     "@julusian/midi": "npm:^3.6.1"
     "@popperjs/core": "npm:^2.11.8"
     bootstrap: "npm:^5.3.8"
     bootstrap-icons: "npm:^1.13.1"
-    electron: "npm:^39.2.5"
+    electron: "npm:^39.2.7"
     electron-squirrel-startup: "npm:^1.0.1"
     electron-store: "npm:^11.0.2"
     node-abi: "npm:^4.24.0"
-    update-electron-app: "npm:^3.1.1"
+    update-electron-app: "npm:^3.1.2"
   languageName: unknown
   linkType: soft
 
@@ -2125,16 +2127,16 @@ __metadata:
   languageName: node
   linkType: hard
 
-"electron@npm:^39.2.5":
-  version: 39.2.5
-  resolution: "electron@npm:39.2.5"
+"electron@npm:^39.2.7":
+  version: 39.2.7
+  resolution: "electron@npm:39.2.7"
   dependencies:
     "@electron/get": "npm:^2.0.0"
     "@types/node": "npm:^22.7.7"
     extract-zip: "npm:^2.0.1"
   bin:
     electron: cli.js
-  checksum: 10c0/d2c396cdbbd06c56c7a55264d485421501fcd65ffb1d88f6865766ffabd9c6ad912be75225c148f6087fe773c25537f5d870d79eba7a599136756c10b20cf38f
+  checksum: 10c0/5923992063245f4b9593edd4186d9d7738f808120b60592bce16bd2e53815c551b2fc824a633597e7a542bd1b456760df0dbdf02d18dde5b1d77eb037979037c
   languageName: node
   linkType: hard
 
@@ -5050,13 +5052,13 @@ __metadata:
   languageName: node
   linkType: hard
 
-"update-electron-app@npm:^3.1.1":
-  version: 3.1.1
-  resolution: "update-electron-app@npm:3.1.1"
+"update-electron-app@npm:^3.1.2":
+  version: 3.1.2
+  resolution: "update-electron-app@npm:3.1.2"
   dependencies:
     github-url-to-object: "npm:^4.0.4"
     ms: "npm:^2.1.1"
-  checksum: 10c0/b3c72bd13a02a7227d7116dc939b96a458545371d2dd25a26bf488cefb40d55af4a7c6c81ef025f14fd97f2d9c86256d3e200c7895a5fc4e3ddd3e5594f2ff12
+  checksum: 10c0/b93673115870628ba3f0417abcd5e63a41dbc0b3579da025fbdc1ce4b8a8a3f3fc758507926e02bb8ee3e7406be99262bbb2f51d4da8926467e1b29ad34144ed
   languageName: node
   linkType: hard
 

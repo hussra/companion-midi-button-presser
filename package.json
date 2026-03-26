@@ -1,7 +1,7 @@
 {
   "name": "companion-midi-button-presser",
   "productName": "Companion MIDI Button Presser",
-  "version": "1.2.1",
+  "version": "1.2.2-dev",
   "description": "Companion MIDI Button Presser",
   "repository": {
     "type": "git",
@@ -16,28 +16,28 @@
   },
   "author": "Richard Huss <richard@huss.org.uk>",
   "license": "MIT",
-  "packageManager": "yarn@4.9.2",
+  "packageManager": "yarn@4.12.0",
   "devDependencies": {
-    "@electron-forge/cli": "^7.8.1",
-    "@electron-forge/maker-deb": "^7.8.1",
-    "@electron-forge/maker-rpm": "^7.8.1",
-    "@electron-forge/maker-squirrel": "^7.8.1",
-    "@electron-forge/maker-zip": "^7.8.1",
-    "@electron-forge/plugin-auto-unpack-natives": "^7.8.1",
-    "@electron-forge/plugin-fuses": "^7.8.1",
-    "@electron/fuses": "^1.8.0",
-    "@electron/rebuild": "^4.0.1",
-    "electron": "^37.2.2",
-    "node-abi": "^4.12.0"
+    "@electron-forge/cli": "^7.11.1",
+    "@electron-forge/maker-deb": "^7.11.1",
+    "@electron-forge/maker-rpm": "^7.11.1",
+    "@electron-forge/maker-squirrel": "^7.11.1",
+    "@electron-forge/maker-zip": "^7.11.1",
+    "@electron-forge/plugin-auto-unpack-natives": "^7.11.1",
+    "@electron-forge/plugin-fuses": "^7.11.1",
+    "@electron/fuses": "^2.1.0",
+    "@electron/rebuild": "^4.0.3",
+    "electron": "^41.0.4",
+    "node-abi": "^4.28.0"
   },
   "dependencies": {
     "@julusian/midi": "^3.6.1",
     "@popperjs/core": "^2.11.8",
-    "bootstrap": "^5.3.7",
+    "bootstrap": "^5.3.8",
     "bootstrap-icons": "^1.13.1",
     "electron-squirrel-startup": "^1.0.1",
-    "electron-store": "^10.1.0",
-    "update-electron-app": "^3.1.1"
+    "electron-store": "^11.0.2",
+    "update-electron-app": "^3.1.2"
   },
   "type": "module"
 }

@@ -46,12 +46,10 @@ const store = new Store({ schema })
 let changed = false
 
 export function setChanged(newValue) {
-  console.log('setChanged to ' + newValue)
   changed = newValue
 }
 
 export function isChanged() {
-  console.log('isChanged() ' + changed)
   return changed
 }
 
